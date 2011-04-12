@@ -1,0 +1,3 @@
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/ipcamExample/src/AxisCameraPatch.cpp: In function 'void handleStreamEvent(__CFReadStream*, CFStreamEventType, void*)':
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/ipcamExample/src/AxisCameraPatch.cpp:189: warning: format '%i' expects type 'int', but argument 2 has type 'CFIndex'
+i686-apple-darwin10-gcc-4.2.1: -lpthread: linker input file unused because linking not done
