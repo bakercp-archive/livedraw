@@ -39,7 +39,6 @@
 		E4C2428710CC5BBD004149E2 /* osc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2428610CC5BBD004149E2 /* osc.a */; };
 		E4C2429410CC5C38004149E2 /* freetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2429310CC5C38004149E2 /* freetype.a */; };
 		E4C242CD10CC650E004149E2 /* libfmodex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C242CC10CC650E004149E2 /* libfmodex.dylib */; };
-		FD0BC1D6132B56F8005B9C2C /* ofxVideoLooper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD0BC1D4132B56F8005B9C2C /* ofxVideoLooper.cpp */; };
 		FD5DAE49132A9C4900AA32B5 /* ofxFenster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAE47132A9C4900AA32B5 /* ofxFenster.cpp */; };
 		FD5DAE4D132A9C6600AA32B5 /* ofxFbo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAE4B132A9C6600AA32B5 /* ofxFbo.cpp */; };
 		FD5DAECF132AA9E100AA32B5 /* BaseMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAECE132AA9E100AA32B5 /* BaseMediaAsset.cpp */; };
@@ -59,7 +58,6 @@
 		FD5ECE2413220F8D00730885 /* ofxQuaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECE1C13220F8D00730885 /* ofxQuaternion.cpp */; };
 		FD5ECE2E13220FAB00730885 /* ofxDirList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECE2C13220FAB00730885 /* ofxDirList.cpp */; };
 		FD5ECE561322121900730885 /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECE551322121900730885 /* GuiManager.cpp */; };
-		FD5ECF5B1322EF6B00730885 /* ofxVideoStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECF591322EF6B00730885 /* ofxVideoStreamer.cpp */; };
 		FD5ECFA41322F59700730885 /* BaseMediaSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECFA31322F59700730885 /* BaseMediaSource.cpp */; };
 		FD5ECFB91322FF8800730885 /* StreamSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECFB81322FF8800730885 /* StreamSource.cpp */; };
 		FD5ECFBC1322FF9000730885 /* ImageSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5ECFBB1322FF9000730885 /* ImageSource.cpp */; };
@@ -76,6 +74,10 @@
 		FDE2132412E2A77300F59BC8 /* SessionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE2132212E2A77300F59BC8 /* SessionManager.cpp */; };
 		FDE2133212E2A9BD00F59BC8 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE2133112E2A9BD00F59BC8 /* AssetManager.cpp */; };
 		FDE2133812E2B9A200F59BC8 /* ControllerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE2133712E2B9A200F59BC8 /* ControllerManager.cpp */; };
+		FDE737C21354F3A80028EAD9 /* GrabberMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C01354F3A60028EAD9 /* GrabberMediaAsset.cpp */; };
+		FDE737C51354F4750028EAD9 /* ImageMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C31354F46F0028EAD9 /* ImageMediaAsset.cpp */; };
+		FDE737C81354F4AC0028EAD9 /* VideoMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */; };
+		FDE737CB1354F4E50028EAD9 /* StreamingMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */; };
 		FDF6639612AC9E6700C79694 /* CanvasRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEB524412A8E2E100CEE6C8 /* CanvasRenderer.cpp */; };
 		FDF663FF12ADF68900C79694 /* CanvasLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDF663FD12ADF68900C79694 /* CanvasLayer.cpp */; };
 /* End PBXBuildFile section */
@@ -183,13 +185,11 @@
 		E4C2428610CC5BBD004149E2 /* osc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = osc.a; path = ../../../addons/ofxOsc/libs/oscpack/lib/osx/osc.a; sourceTree = SOURCE_ROOT; };
 		E4C2429310CC5C38004149E2 /* freetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freetype.a; path = ../../../libs/freetype/lib/osx/freetype.a; sourceTree = SOURCE_ROOT; };
 		E4C242CC10CC650E004149E2 /* libfmodex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmodex.dylib; path = ../../../libs/fmodex/lib/osx/libfmodex.dylib; sourceTree = SOURCE_ROOT; };
-		FD0BC1D4132B56F8005B9C2C /* ofxVideoLooper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVideoLooper.cpp; sourceTree = "<group>"; };
-		FD0BC1D5132B56F8005B9C2C /* ofxVideoLooper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoLooper.h; sourceTree = "<group>"; };
 		FD5DAE47132A9C4900AA32B5 /* ofxFenster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFenster.cpp; sourceTree = "<group>"; };
 		FD5DAE48132A9C4900AA32B5 /* ofxFenster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFenster.h; sourceTree = "<group>"; };
 		FD5DAE4B132A9C6600AA32B5 /* ofxFbo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFbo.cpp; sourceTree = "<group>"; };
 		FD5DAE4C132A9C6600AA32B5 /* ofxFbo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFbo.h; sourceTree = "<group>"; };
-		FD5DAECD132AA9E100AA32B5 /* BaseMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BaseMediaAsset.h; sourceTree = "<group>"; };
+		FD5DAECD132AA9E100AA32B5 /* BaseMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMediaAsset.h; sourceTree = "<group>"; };
 		FD5DAECE132AA9E100AA32B5 /* BaseMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseMediaAsset.cpp; sourceTree = "<group>"; };
 		FD5DAF4E132ABB6100AA32B5 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
 		FD5ECD9C13220ED100730885 /* ofxGui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxGui.cpp; sourceTree = "<group>"; };
@@ -231,8 +231,6 @@
 		FD5ECE2D13220FAB00730885 /* ofxDirList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxDirList.h; sourceTree = "<group>"; };
 		FD5ECE541322121900730885 /* GuiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuiManager.h; path = GUI/GuiManager.h; sourceTree = "<group>"; };
 		FD5ECE551322121900730885 /* GuiManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiManager.cpp; path = GUI/GuiManager.cpp; sourceTree = "<group>"; };
-		FD5ECF591322EF6B00730885 /* ofxVideoStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVideoStreamer.cpp; sourceTree = "<group>"; };
-		FD5ECF5A1322EF6B00730885 /* ofxVideoStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoStreamer.h; sourceTree = "<group>"; };
 		FD5ECFA21322F59700730885 /* BaseMediaSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMediaSource.h; sourceTree = "<group>"; };
 		FD5ECFA31322F59700730885 /* BaseMediaSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseMediaSource.cpp; sourceTree = "<group>"; };
 		FD5ECFB71322FF8800730885 /* StreamSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamSource.h; sourceTree = "<group>"; };
@@ -267,13 +265,21 @@
 		FDE2133112E2A9BD00F59BC8 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AssetManager.cpp; path = sources/AssetManager.cpp; sourceTree = "<group>"; };
 		FDE2133612E2B9A200F59BC8 /* ControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerManager.h; path = controllers/ControllerManager.h; sourceTree = "<group>"; };
 		FDE2133712E2B9A200F59BC8 /* ControllerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControllerManager.cpp; path = controllers/ControllerManager.cpp; sourceTree = "<group>"; };
+		FDE737741354E9020028EAD9 /* EnablerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnablerInterface.h; sourceTree = "<group>"; };
+		FDE737751354E9020028EAD9 /* ofxLimitedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLimitedPoint.h; sourceTree = "<group>"; };
+		FDE737761354E9020028EAD9 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		FDE737C01354F3A60028EAD9 /* GrabberMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GrabberMediaAsset.cpp; sourceTree = "<group>"; };
+		FDE737C11354F3A70028EAD9 /* GrabberMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrabberMediaAsset.h; sourceTree = "<group>"; };
+		FDE737C31354F46F0028EAD9 /* ImageMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageMediaAsset.cpp; sourceTree = "<group>"; };
+		FDE737C41354F4720028EAD9 /* ImageMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMediaAsset.h; sourceTree = "<group>"; };
+		FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoMediaAsset.cpp; sourceTree = "<group>"; };
+		FDE737C71354F4A80028EAD9 /* VideoMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoMediaAsset.h; sourceTree = "<group>"; };
+		FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamingMediaAsset.cpp; sourceTree = "<group>"; };
+		FDE737CA1354F4DF0028EAD9 /* StreamingMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingMediaAsset.h; sourceTree = "<group>"; };
 		FDEB524312A8E2E100CEE6C8 /* CanvasRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasRenderer.h; path = canvas/CanvasRenderer.h; sourceTree = "<group>"; };
 		FDEB524412A8E2E100CEE6C8 /* CanvasRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CanvasRenderer.cpp; path = canvas/CanvasRenderer.cpp; sourceTree = "<group>"; };
 		FDF663FD12ADF68900C79694 /* CanvasLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CanvasLayer.cpp; path = canvas/CanvasLayer.cpp; sourceTree = "<group>"; };
 		FDF663FE12ADF68900C79694 /* CanvasLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasLayer.h; path = canvas/CanvasLayer.h; sourceTree = "<group>"; };
-		FDFF64A4132D7EF500A9C8DF /* EnablerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnablerInterface.h; sourceTree = "<group>"; };
-		FDFF64A5132D7EF500A9C8DF /* ofxLimitedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLimitedPoint.h; sourceTree = "<group>"; };
-		FDFF64A6132D7EF500A9C8DF /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,12 +321,10 @@
 		E44665C70F5B3E03005D0BF0 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF64A2132D7EF500A9C8DF /* ofxUtils */,
-				FD0BC1D2132B56F8005B9C2C /* ofxVideoLooper */,
+				FDE737721354E9020028EAD9 /* ofxUtils */,
 				FD5DAE4A132A9C6600AA32B5 /* ofxFbo */,
 				FD5DAE46132A9C4900AA32B5 /* ofxFenster */,
 				FD6923981324A92700109E3E /* ofxShader */,
-				FD5ECF571322EF6B00730885 /* ofxVideoStreamer */,
 				FD5ECE2713220FAB00730885 /* ofxDirList */,
 				FD5ECE1213220F8D00730885 /* ofxVectorMath */,
 				FD5ECE0213220F7800730885 /* ofxXmlSettings */,
@@ -722,24 +726,6 @@
 			path = ../../../libs/freetype/lib/osx;
 			sourceTree = SOURCE_ROOT;
 		};
-		FD0BC1D2132B56F8005B9C2C /* ofxVideoLooper */ = {
-			isa = PBXGroup;
-			children = (
-				FD0BC1D3132B56F8005B9C2C /* src */,
-			);
-			name = ofxVideoLooper;
-			path = ../ofxVideoLooper;
-			sourceTree = SOURCE_ROOT;
-		};
-		FD0BC1D3132B56F8005B9C2C /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FD0BC1D4132B56F8005B9C2C /* ofxVideoLooper.cpp */,
-				FD0BC1D5132B56F8005B9C2C /* ofxVideoLooper.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		FD5DAE46132A9C4900AA32B5 /* ofxFenster */ = {
 			isa = PBXGroup;
 			children = (
@@ -764,6 +750,14 @@
 			children = (
 				FD5DAECD132AA9E100AA32B5 /* BaseMediaAsset.h */,
 				FD5DAECE132AA9E100AA32B5 /* BaseMediaAsset.cpp */,
+				FDE737C01354F3A60028EAD9 /* GrabberMediaAsset.cpp */,
+				FDE737C11354F3A70028EAD9 /* GrabberMediaAsset.h */,
+				FDE737C31354F46F0028EAD9 /* ImageMediaAsset.cpp */,
+				FDE737C41354F4720028EAD9 /* ImageMediaAsset.h */,
+				FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */,
+				FDE737C71354F4A80028EAD9 /* VideoMediaAsset.h */,
+				FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */,
+				FDE737CA1354F4DF0028EAD9 /* StreamingMediaAsset.h */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -881,24 +875,6 @@
 				FD5ECE551322121900730885 /* GuiManager.cpp */,
 			);
 			name = GUI;
-			sourceTree = "<group>";
-		};
-		FD5ECF571322EF6B00730885 /* ofxVideoStreamer */ = {
-			isa = PBXGroup;
-			children = (
-				FD5ECF581322EF6B00730885 /* src */,
-			);
-			name = ofxVideoStreamer;
-			path = ../ofxVideoStreamer;
-			sourceTree = SOURCE_ROOT;
-		};
-		FD5ECF581322EF6B00730885 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FD5ECF591322EF6B00730885 /* ofxVideoStreamer.cpp */,
-				FD5ECF5A1322EF6B00730885 /* ofxVideoStreamer.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		FD5ECFA51322F5A700730885 /* implementations */ = {
@@ -1062,6 +1038,25 @@
 			name = sessions;
 			sourceTree = "<group>";
 		};
+		FDE737721354E9020028EAD9 /* ofxUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FDE737731354E9020028EAD9 /* src */,
+			);
+			name = ofxUtils;
+			path = ../apps/MAW2/ofxUtils;
+			sourceTree = "<group>";
+		};
+		FDE737731354E9020028EAD9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FDE737741354E9020028EAD9 /* EnablerInterface.h */,
+				FDE737751354E9020028EAD9 /* ofxLimitedPoint.h */,
+				FDE737761354E9020028EAD9 /* RingBuffer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		FDEB523D12A8E27F00CEE6C8 /* canvas */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,25 +1066,6 @@
 				FDEB524412A8E2E100CEE6C8 /* CanvasRenderer.cpp */,
 			);
 			name = canvas;
-			sourceTree = "<group>";
-		};
-		FDFF64A2132D7EF500A9C8DF /* ofxUtils */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF64A3132D7EF500A9C8DF /* src */,
-			);
-			name = ofxUtils;
-			path = ../ofxUtils;
-			sourceTree = SOURCE_ROOT;
-		};
-		FDFF64A3132D7EF500A9C8DF /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF64A4132D7EF500A9C8DF /* EnablerInterface.h */,
-				FDFF64A5132D7EF500A9C8DF /* ofxLimitedPoint.h */,
-				FDFF64A6132D7EF500A9C8DF /* RingBuffer.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1206,7 +1182,6 @@
 				FD5ECE2413220F8D00730885 /* ofxQuaternion.cpp in Sources */,
 				FD5ECE2E13220FAB00730885 /* ofxDirList.cpp in Sources */,
 				FD5ECE561322121900730885 /* GuiManager.cpp in Sources */,
-				FD5ECF5B1322EF6B00730885 /* ofxVideoStreamer.cpp in Sources */,
 				FD5ECFA41322F59700730885 /* BaseMediaSource.cpp in Sources */,
 				FD5ECFB91322FF8800730885 /* StreamSource.cpp in Sources */,
 				FD5ECFBC1322FF9000730885 /* ImageSource.cpp in Sources */,
@@ -1221,7 +1196,10 @@
 				FD5DAE49132A9C4900AA32B5 /* ofxFenster.cpp in Sources */,
 				FD5DAE4D132A9C6600AA32B5 /* ofxFbo.cpp in Sources */,
 				FD5DAECF132AA9E100AA32B5 /* BaseMediaAsset.cpp in Sources */,
-				FD0BC1D6132B56F8005B9C2C /* ofxVideoLooper.cpp in Sources */,
+				FDE737C21354F3A80028EAD9 /* GrabberMediaAsset.cpp in Sources */,
+				FDE737C51354F4750028EAD9 /* ImageMediaAsset.cpp in Sources */,
+				FDE737C81354F4AC0028EAD9 /* VideoMediaAsset.cpp in Sources */,
+				FDE737CB1354F4E50028EAD9 /* StreamingMediaAsset.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

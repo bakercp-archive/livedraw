@@ -3,10 +3,11 @@
 
 
 #include "ofMain.h"
-#include "ofxFenster.h"
+//#include "ofxFenster.h"
 
 #include "OscManager.h"
 #include "ControllerManager.h"
+#include "GuiManager.h"
 #include "AssetManager.h"
 #include "CanvasRenderer.h"
 #include "ofxDirList.h"
@@ -15,7 +16,7 @@
 #include "ofxFbo.h"
 
 //--------------------------------------------------------
-class livedrawApp : public ofBaseApp, public ofxFensterListener {
+class livedrawApp : public ofBaseApp { //, public ofxFensterListener {
 
 	public:
 
@@ -38,6 +39,7 @@ class livedrawApp : public ofBaseApp, public ofxFensterListener {
 		void windowResized(int w, int h);
 
 
+        /*
 		// render window
 		void fensterKeyPressed  (int key);
 		void fensterKeyReleased(int key);
@@ -46,25 +48,24 @@ class livedrawApp : public ofBaseApp, public ofxFensterListener {
 		void fensterMousePressed(int x, int y, int button);
 		void fensterMouseReleased(int x, int y, int button);
 		void fensterWindowResized(int w, int h);
-	
+         */
 	
 	
 	private:
-	ofImage of;
-	
-		//ofxFbo	fbo;
+        ofImage of;
+    OscManager oscManager;
 		//ContollerManager	controller;
-		//CanvasRenderer	canvas;
+		
+        CanvasRenderer canvas;
+    
+        ofxFbo	fbo;
+    
+        GuiManager guiManager;
+    
 		AssetManager	assetManager;
 		int nImages, nVideos;
 		ofxDirList aaa;
 		
-		void newButtonEvent(const void * sender, int & i);
-		
-		ofxGui* gui;
-		
-		MyCustomControllerObject* guiObj;
-	
 	
 };
 

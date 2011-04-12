@@ -20,8 +20,8 @@ class CanvasRenderer : public OscNodeListener {
 	
 public:
 	
-	CanvasRenderer();
-	~CanvasRenderer();
+	CanvasRenderer() {};
+	virtual ~CanvasRenderer() {};
 
 	void update();
 	void draw();
@@ -29,23 +29,26 @@ public:
 	
 	
 	// /livedraw/canvas/fullscreen
-	void setFullscreen(bool fullscreen);
+	void setFullscreen(bool _fullscreen){ fullscreen = _fullscreen;};
 	bool getFullscreen() {return fullscreen;};
 	
 	// /livedraw/canvas/background
-	void setBackground(ofColor color);
+	void setBackground(ofColor _color) { bgColor = _color;};
 	ofColor getBackground() { return bgColor; };
 
 	// /livedraw/canvas/size
-	void setSize(int width, int height);
+	//void setSize(int width, int height);
 
 	// /livedraw/canvas/position
-	void setPosition(int x, int y);
+	//void setPosition(int x, int y);
 	
 	// /livedraw/canvas/fps
-	void setFPS(int fps);
+	//void setFPS(int fps);
 	
 	
+    void processOscMessage(string address, ofxOscMessage& m);
+
+    
 	
 	// /livedraw/canvas/layer/new      LAYER_NAME [X_POSITION Y_POSITION [Z_POSITION]]
 	CanvasLayer* newLayer(string layerName, ofPoint point);
@@ -64,9 +67,6 @@ private:
 	vector<CanvasLayer*> layers;
 	
 	// canvas group is a kind of canvas layer
-	
-	
-	
 	
 	ofColor		bgColor; // 
 	ofRectangle	rectangle; // position of the render window

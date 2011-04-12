@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "ofxVideoStreamer.h"
+//#include "ofxVideoStreamer.h"
 #include "BaseMediaSource.h"
 
 
-class StreamSource : public ofxVideoStreamer {//, public BaseMediaSource {
+class StreamSource { //: public ofxVideoStreamer {//, public BaseMediaSource {
 	
 public:
 	StreamSource();

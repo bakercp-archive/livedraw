@@ -18,7 +18,6 @@ void CanvasRenderer::update() {
 void CanvasRenderer::draw() {
 	
 	for(int i = 0; i < layers.size(); i++) {
-		//layers[i].draw();
 		
 		CanvasLayer* layer = layers[i];
 		
@@ -47,3 +46,8 @@ void CanvasRenderer::draw() {
 		
 	}
 }
+
+void CanvasRenderer::processOscMessage(string address, ofxOscMessage& m) {
+    
+}
+

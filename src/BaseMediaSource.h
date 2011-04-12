@@ -13,12 +13,6 @@
 
 #include "Poco/URI.h"
 
-#define DEFAULT_BUFFER_SIZE 1
-
-
-// forward declaration
-//enum MediaAssetType;
-
 // forward declaration
 class BaseMediaAsset;
 

@@ -6,8 +6,8 @@ void livedrawApp::setup(){
 	ofSetFrameRate(60);
 	
 	// render window setup
-	fenster->setFPS(60);
-	fenster->setBounds(924, 100, 400, 300);
+	//fenster->setFPS(60);
+	//fenster->setBounds(924, 100, 400, 300);
 	
 	
 	ofSetLogLevel(OF_LOG_NOTICE);
@@ -17,17 +17,11 @@ void livedrawApp::setup(){
 	assetManager.loadAssets();
 	
 	
-	
-	gui = ofxGui::Instance();
+    oscManager.setup();
+    guiManager.setup();
 
-	guiObj = new MyCustomControllerObject(gui);
 	
-	
-	gui->forceUpdate(false);
-	gui->activate(true);
-	
-	
-	//fbo.setup(fenster->getWidth(), fenster->getHeight());
+	fbo.setup(1024, 768);
 
 	
 	//of.loadImage("application/cache/media/images/default_image.png");
@@ -40,9 +34,8 @@ void livedrawApp::setup(){
 
 //--------------------------------------------------------------
 void livedrawApp::update(){
-	//oscManager.update();
-
-	
+	oscManager.update();
+    guiManager.update();
 	
 
 
@@ -51,7 +44,9 @@ void livedrawApp::update(){
 
 //--------------------------------------------------------------
 void livedrawApp::draw(){
-	
+    oscManager.update();
+    guiManager.draw();
+
 	
 }
 
@@ -95,6 +90,7 @@ void livedrawApp::windowResized(int w, int h){
 
 }
 
+/*
 
 //--------------------------------------------------------------
 void livedrawApp::fensterUpdate(){
@@ -112,6 +108,7 @@ void livedrawApp::fensterDraw(){
 	
 	
 }
+
 //--------------------------------------------------------------
 void livedrawApp::fensterKeyPressed  (int key){
 	if(key == ' ')
@@ -153,3 +150,4 @@ void livedrawApp::fensterWindowResized(int w, int h){
 	ofLog(OF_LOG_NOTICE, "Render window resized to " + ofToString(w) + "x" + ofToString(h));
 	
 };
+ */

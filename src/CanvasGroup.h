@@ -8,5 +8,12 @@
  */
 
 
+#pragma once
 
-// public class CanvasGroup
+#include "ofMain.h"
+
+class CanvasGroup {
+public:    
+    
+    
+};

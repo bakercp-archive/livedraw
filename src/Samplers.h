@@ -15,10 +15,6 @@
 
 #include "BaseMediaAsset.h"
 
-//#define OF_LOOP_NONE					0x01
-//#define OF_LOOP_PALINDROME			0x02
-//#define OF_LOOP_NORMAL				0x03
-
 // EASING MODES
 
 

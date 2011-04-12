@@ -60,6 +60,8 @@ public:
 	//	void onNewAsset(StreamMediaAsset* stream);
 	
 	
+
+    
 	// TODO: this is strange.  we should be able to open this without having it passed in
 	void setDirList(ofxDirList* dir);
 	ofxDirList*   aaa;

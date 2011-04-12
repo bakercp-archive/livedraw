@@ -7,9 +7,7 @@
  *
  */
 
-
-#ifndef _CANVAS_LAYER_H
-#define _CANVAS_LAYER_H
+#pragma once
 
 #include "OscNodeListener.h"
 #include "BaseMediaSource.h"
@@ -58,7 +56,7 @@ public:
 	bool setSolo(bool solo) {this->solo = solo;};
 
 	bool isLocked() {return locked;};
-	bool setLocked(bool locked) {this->solo = solo;};
+	bool setLocked(bool locked) {this->locked = locked;};
 	
 	
 private:
@@ -81,5 +79,3 @@ private:
 	
 	
 };
-
-#endif

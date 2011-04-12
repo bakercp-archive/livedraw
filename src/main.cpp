@@ -6,13 +6,13 @@
 int main( ){
 
     ofAppGlutWindow window;
-	ofSetupOpenGL(&window, 1024,768, OF_WINDOW);			// <-------- setup the GL context
+	ofSetupOpenGL(&window, 2048,768, OF_WINDOW);			// <-------- setup the GL context
 
 	
 	livedrawApp* app = new livedrawApp;
 	
-	ofxFenster fenster;
-	fenster.init(app);
+	//ofxFenster fenster;
+	//fenster.init(app);
 	
 	
 	// this kicks off the running of my app

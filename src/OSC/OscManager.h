@@ -23,7 +23,7 @@ class OscManager {
 public:
 	
 	OscManager();
-	~OscManager();
+	virtual ~OscManager();
 //	void OscManager(int port);
 	void setup();
 	void update();

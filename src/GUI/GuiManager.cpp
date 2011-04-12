@@ -9,3 +9,27 @@
 
 #include "GuiManager.h"
 
+
+
+GuiManager::GuiManager() {
+    
+}
+
+GuiManager::~GuiManager() {
+    
+}
+
+void GuiManager::setup() {
+    gui = ofxGui::Instance();
+	guiObj = new MyCustomControllerObject(gui);
+	gui->forceUpdate(false);
+	gui->activate(true);
+}
+
+void GuiManager::update() {
+    
+}
+
+void GuiManager::draw() {
+    
+}

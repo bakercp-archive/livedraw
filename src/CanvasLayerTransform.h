@@ -7,12 +7,11 @@
  *
  */
 
-#ifndef _CANVAS_LAYER_TRANSFORM_H
-#define _CANVAS_LAYER_TRANSFORM_H
+#pragma once 
 
+#include "ofMain.h"
 #include "ofEvents.h"
 #include "EnablerInterface.h"
-#include "ofMain.h"
 #include "ofxLimitedPoint.h"
 
 class CanvasLayerTransform : public Enabler {
@@ -143,5 +142,3 @@ public:
 	ofEvent<ofxLimitedPoint*> newRotationLimitEvent;
 	*/
 };
-
-#endif
