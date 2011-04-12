@@ -6,7 +6,7 @@
 //  Copyright 2011 Murmur Labs LLC. All rights reserved.
 //
 
-#include "StreamingMediaAsset.h"
+#include "StreamMediaAsset.h"
 
 
 //--------------------------------------------------------------

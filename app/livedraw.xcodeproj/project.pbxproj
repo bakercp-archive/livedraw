@@ -39,6 +39,9 @@
 		E4C2428710CC5BBD004149E2 /* osc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2428610CC5BBD004149E2 /* osc.a */; };
 		E4C2429410CC5C38004149E2 /* freetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2429310CC5C38004149E2 /* freetype.a */; };
 		E4C242CD10CC650E004149E2 /* libfmodex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C242CC10CC650E004149E2 /* libfmodex.dylib */; };
+		FD309D331354FDB400028AF2 /* ofxVideoBufferManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD309D2C1354FDB400028AF2 /* ofxVideoBufferManager.cpp */; };
+		FD309D341354FDB400028AF2 /* ofxVideoBufferPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD309D2E1354FDB400028AF2 /* ofxVideoBufferPlayer.cpp */; };
+		FD309D351354FDB400028AF2 /* ofxVideoStreamer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD309D301354FDB400028AF2 /* ofxVideoStreamer.cpp */; };
 		FD5DAE49132A9C4900AA32B5 /* ofxFenster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAE47132A9C4900AA32B5 /* ofxFenster.cpp */; };
 		FD5DAE4D132A9C6600AA32B5 /* ofxFbo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAE4B132A9C6600AA32B5 /* ofxFbo.cpp */; };
 		FD5DAECF132AA9E100AA32B5 /* BaseMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5DAECE132AA9E100AA32B5 /* BaseMediaAsset.cpp */; };
@@ -77,7 +80,7 @@
 		FDE737C21354F3A80028EAD9 /* GrabberMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C01354F3A60028EAD9 /* GrabberMediaAsset.cpp */; };
 		FDE737C51354F4750028EAD9 /* ImageMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C31354F46F0028EAD9 /* ImageMediaAsset.cpp */; };
 		FDE737C81354F4AC0028EAD9 /* VideoMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */; };
-		FDE737CB1354F4E50028EAD9 /* StreamingMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */; };
+		FDE737CB1354F4E50028EAD9 /* StreamMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE737C91354F4D90028EAD9 /* StreamMediaAsset.cpp */; };
 		FDF6639612AC9E6700C79694 /* CanvasRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDEB524412A8E2E100CEE6C8 /* CanvasRenderer.cpp */; };
 		FDF663FF12ADF68900C79694 /* CanvasLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDF663FD12ADF68900C79694 /* CanvasLayer.cpp */; };
 /* End PBXBuildFile section */
@@ -185,6 +188,16 @@
 		E4C2428610CC5BBD004149E2 /* osc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = osc.a; path = ../../../addons/ofxOsc/libs/oscpack/lib/osx/osc.a; sourceTree = SOURCE_ROOT; };
 		E4C2429310CC5C38004149E2 /* freetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = freetype.a; path = ../../../libs/freetype/lib/osx/freetype.a; sourceTree = SOURCE_ROOT; };
 		E4C242CC10CC650E004149E2 /* libfmodex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmodex.dylib; path = ../../../libs/fmodex/lib/osx/libfmodex.dylib; sourceTree = SOURCE_ROOT; };
+		FD309D241354FDB400028AF2 /* EnablerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnablerInterface.h; sourceTree = "<group>"; };
+		FD309D251354FDB400028AF2 /* ofxLimitedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLimitedPoint.h; sourceTree = "<group>"; };
+		FD309D261354FDB400028AF2 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		FD309D2B1354FDB400028AF2 /* ofxVideoBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoBuffer.h; sourceTree = "<group>"; };
+		FD309D2C1354FDB400028AF2 /* ofxVideoBufferManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVideoBufferManager.cpp; sourceTree = "<group>"; };
+		FD309D2D1354FDB400028AF2 /* ofxVideoBufferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoBufferManager.h; sourceTree = "<group>"; };
+		FD309D2E1354FDB400028AF2 /* ofxVideoBufferPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVideoBufferPlayer.cpp; sourceTree = "<group>"; };
+		FD309D2F1354FDB400028AF2 /* ofxVideoBufferPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoBufferPlayer.h; sourceTree = "<group>"; };
+		FD309D301354FDB400028AF2 /* ofxVideoStreamer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVideoStreamer.cpp; sourceTree = "<group>"; };
+		FD309D311354FDB400028AF2 /* ofxVideoStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVideoStreamer.h; sourceTree = "<group>"; };
 		FD5DAE47132A9C4900AA32B5 /* ofxFenster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFenster.cpp; sourceTree = "<group>"; };
 		FD5DAE48132A9C4900AA32B5 /* ofxFenster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFenster.h; sourceTree = "<group>"; };
 		FD5DAE4B132A9C6600AA32B5 /* ofxFbo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFbo.cpp; sourceTree = "<group>"; };
@@ -265,17 +278,14 @@
 		FDE2133112E2A9BD00F59BC8 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AssetManager.cpp; path = sources/AssetManager.cpp; sourceTree = "<group>"; };
 		FDE2133612E2B9A200F59BC8 /* ControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerManager.h; path = controllers/ControllerManager.h; sourceTree = "<group>"; };
 		FDE2133712E2B9A200F59BC8 /* ControllerManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControllerManager.cpp; path = controllers/ControllerManager.cpp; sourceTree = "<group>"; };
-		FDE737741354E9020028EAD9 /* EnablerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnablerInterface.h; sourceTree = "<group>"; };
-		FDE737751354E9020028EAD9 /* ofxLimitedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLimitedPoint.h; sourceTree = "<group>"; };
-		FDE737761354E9020028EAD9 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
 		FDE737C01354F3A60028EAD9 /* GrabberMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GrabberMediaAsset.cpp; sourceTree = "<group>"; };
 		FDE737C11354F3A70028EAD9 /* GrabberMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrabberMediaAsset.h; sourceTree = "<group>"; };
 		FDE737C31354F46F0028EAD9 /* ImageMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageMediaAsset.cpp; sourceTree = "<group>"; };
 		FDE737C41354F4720028EAD9 /* ImageMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMediaAsset.h; sourceTree = "<group>"; };
 		FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoMediaAsset.cpp; sourceTree = "<group>"; };
 		FDE737C71354F4A80028EAD9 /* VideoMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoMediaAsset.h; sourceTree = "<group>"; };
-		FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamingMediaAsset.cpp; sourceTree = "<group>"; };
-		FDE737CA1354F4DF0028EAD9 /* StreamingMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamingMediaAsset.h; sourceTree = "<group>"; };
+		FDE737C91354F4D90028EAD9 /* StreamMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamMediaAsset.cpp; sourceTree = "<group>"; };
+		FDE737CA1354F4DF0028EAD9 /* StreamMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamMediaAsset.h; sourceTree = "<group>"; };
 		FDEB524312A8E2E100CEE6C8 /* CanvasRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasRenderer.h; path = canvas/CanvasRenderer.h; sourceTree = "<group>"; };
 		FDEB524412A8E2E100CEE6C8 /* CanvasRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CanvasRenderer.cpp; path = canvas/CanvasRenderer.cpp; sourceTree = "<group>"; };
 		FDF663FD12ADF68900C79694 /* CanvasLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CanvasLayer.cpp; path = canvas/CanvasLayer.cpp; sourceTree = "<group>"; };
@@ -321,7 +331,8 @@
 		E44665C70F5B3E03005D0BF0 /* addons */ = {
 			isa = PBXGroup;
 			children = (
-				FDE737721354E9020028EAD9 /* ofxUtils */,
+				FD309D221354FDB400028AF2 /* ofxUtils */,
+				FD309D271354FDB400028AF2 /* ofxVideoUtils */,
 				FD5DAE4A132A9C6600AA32B5 /* ofxFbo */,
 				FD5DAE46132A9C4900AA32B5 /* ofxFenster */,
 				FD6923981324A92700109E3E /* ofxShader */,
@@ -726,6 +737,48 @@
 			path = ../../../libs/freetype/lib/osx;
 			sourceTree = SOURCE_ROOT;
 		};
+		FD309D221354FDB400028AF2 /* ofxUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FD309D231354FDB400028AF2 /* src */,
+			);
+			name = ofxUtils;
+			path = ../apps/livedraw/addons/ofxUtils;
+			sourceTree = "<group>";
+		};
+		FD309D231354FDB400028AF2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FD309D241354FDB400028AF2 /* EnablerInterface.h */,
+				FD309D251354FDB400028AF2 /* ofxLimitedPoint.h */,
+				FD309D261354FDB400028AF2 /* RingBuffer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		FD309D271354FDB400028AF2 /* ofxVideoUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FD309D281354FDB400028AF2 /* src */,
+			);
+			name = ofxVideoUtils;
+			path = ../apps/livedraw/addons/ofxVideoUtils;
+			sourceTree = "<group>";
+		};
+		FD309D281354FDB400028AF2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FD309D2B1354FDB400028AF2 /* ofxVideoBuffer.h */,
+				FD309D2C1354FDB400028AF2 /* ofxVideoBufferManager.cpp */,
+				FD309D2D1354FDB400028AF2 /* ofxVideoBufferManager.h */,
+				FD309D2E1354FDB400028AF2 /* ofxVideoBufferPlayer.cpp */,
+				FD309D2F1354FDB400028AF2 /* ofxVideoBufferPlayer.h */,
+				FD309D301354FDB400028AF2 /* ofxVideoStreamer.cpp */,
+				FD309D311354FDB400028AF2 /* ofxVideoStreamer.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		FD5DAE46132A9C4900AA32B5 /* ofxFenster */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,8 +809,8 @@
 				FDE737C41354F4720028EAD9 /* ImageMediaAsset.h */,
 				FDE737C61354F4A30028EAD9 /* VideoMediaAsset.cpp */,
 				FDE737C71354F4A80028EAD9 /* VideoMediaAsset.h */,
-				FDE737C91354F4D90028EAD9 /* StreamingMediaAsset.cpp */,
-				FDE737CA1354F4DF0028EAD9 /* StreamingMediaAsset.h */,
+				FDE737C91354F4D90028EAD9 /* StreamMediaAsset.cpp */,
+				FDE737CA1354F4DF0028EAD9 /* StreamMediaAsset.h */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -1038,25 +1091,6 @@
 			name = sessions;
 			sourceTree = "<group>";
 		};
-		FDE737721354E9020028EAD9 /* ofxUtils */ = {
-			isa = PBXGroup;
-			children = (
-				FDE737731354E9020028EAD9 /* src */,
-			);
-			name = ofxUtils;
-			path = ../apps/MAW2/ofxUtils;
-			sourceTree = "<group>";
-		};
-		FDE737731354E9020028EAD9 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FDE737741354E9020028EAD9 /* EnablerInterface.h */,
-				FDE737751354E9020028EAD9 /* ofxLimitedPoint.h */,
-				FDE737761354E9020028EAD9 /* RingBuffer.h */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
 		FDEB523D12A8E27F00CEE6C8 /* canvas */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,7 +1233,10 @@
 				FDE737C21354F3A80028EAD9 /* GrabberMediaAsset.cpp in Sources */,
 				FDE737C51354F4750028EAD9 /* ImageMediaAsset.cpp in Sources */,
 				FDE737C81354F4AC0028EAD9 /* VideoMediaAsset.cpp in Sources */,
-				FDE737CB1354F4E50028EAD9 /* StreamingMediaAsset.cpp in Sources */,
+				FDE737CB1354F4E50028EAD9 /* StreamMediaAsset.cpp in Sources */,
+				FD309D331354FDB400028AF2 /* ofxVideoBufferManager.cpp in Sources */,
+				FD309D341354FDB400028AF2 /* ofxVideoBufferPlayer.cpp in Sources */,
+				FD309D351354FDB400028AF2 /* ofxVideoStreamer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

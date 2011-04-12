@@ -13,7 +13,11 @@
 #include "ofxDirList.h"
 #include "ofImage.h"
 
-#include "BaseMediaAsset.h"
+//#include "BaseMediaAsset.h"
+#include "ImageMediaAsset.h"
+#include "VideoMediaAsset.h"
+#include "GrabberMediaAsset.h"
+#include "StreamMediaAsset.h"
 
 /*
 #include "GrabberSource.h"
