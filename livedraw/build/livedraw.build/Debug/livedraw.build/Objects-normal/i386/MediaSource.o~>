@@ -1,0 +1,4 @@
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/livedraw/src/MediaSource.cpp:10:29: error: BaseMediaSource.h: No such file or directory
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/livedraw/src/MediaSource.cpp:14: error: 'MediaSource' has not been declared
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/livedraw/src/MediaSource.cpp:14: error: ISO C++ forbids declaration of 'MediaSource' with no type
+/Users/bakercp/Programming/c-cpp/openFrameworks/of_preRelease_v0062_osxSL_FAT/apps/MAW/livedraw/src/MediaSource.cpp:19: error: expected constructor, destructor, or type conversion before '::' token
