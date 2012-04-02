@@ -24,7 +24,7 @@ public:
                          ofPoint _anchorPoint, 
                          ofPoint _rotation, 
                          ofPoint _scale, 
-                         float _opacity) : 
+                         int _opacity) : 
                                             Enabler(true),  
                                             OscNodeListener("/transform") {
         
@@ -49,7 +49,7 @@ public:
 		anchorPoint = ofxLimitedPoint(_anchorPoint);
 		rotation = ofxLimitedPoint(_rotation);
 		scale = ofxLimitedPoint(_scale);
-        opacity = 1.0f;
+        opacity = 255;
         size = ofPoint(640,480);
 
         init();
@@ -65,7 +65,7 @@ public:
 		anchorPoint = ofxLimitedPoint(_anchorPoint);
 		rotation = ofxLimitedPoint(_rotation);
 		scale = ofxLimitedPoint(ofPoint(1.0f, 1.0f, 1.0f));
-        opacity = 1.0f;
+        opacity = 255;
         size = ofPoint(640,480);
 
         init();
@@ -79,7 +79,7 @@ public:
         position = ofxLimitedPoint(_position);
 		anchorPoint = ofxLimitedPoint(_anchorPoint);
 		scale = ofxLimitedPoint(ofPoint(1.0f, 1.0f, 1.0f));
-        opacity = 1.0f;
+        opacity = 255;
         size = ofPoint(640,480);
 
         init();
@@ -91,7 +91,7 @@ public:
         
         position = ofxLimitedPoint(_position);
 		scale = ofxLimitedPoint(ofPoint(1.0f, 1.0f, 1.0f));
-        opacity = 1.0f;
+        opacity = 255;
         size = ofPoint(640,480);
 
         init();
@@ -100,7 +100,7 @@ public:
     CanvasLayerTransform() : Enabler(true), OscNodeListener("/transform") {
         
 		scale = ofxLimitedPoint(ofPoint(1.0f, 1.0f, 1.0f));
-        opacity = 1.0f;
+        opacity = 255;
         size = ofPoint(640,480);
 
         init();
@@ -267,7 +267,7 @@ public:
             
         } else if(isMatch(address,"/opacity")) {
             if(validateOscSignature("[if]", m)) {
-                float  val = m.getArgAsFloat(0);
+                int  val = m.getArgAsInt32(0);
                 setOpacity(val);
             }
         } else if(isMatch(address,"/size")) {
@@ -326,8 +326,8 @@ public:
 	void setScaleY(float y) {scale.y = y; onSetScale();}
 	void setScaleZ(float z) {scale.z = z; onSetScale();}
 	
-	float getOpacity()	{ return opacity;}
-	void setOpacity(float o) { opacity = o; onSetOpacity();};
+	int getOpacity()	{ return opacity;}
+	void setOpacity(int o) { opacity = o; onSetOpacity();};
 	
     void onSetSize() {
         
@@ -395,7 +395,7 @@ public:
 	
     ofxLimitedPoint size;
     
-	float opacity;
+	int opacity; // 0-255
 	
 	/*
 	ofEvent<ofxLimitedPoint*> newPositionEvent;

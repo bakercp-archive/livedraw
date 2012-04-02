@@ -169,7 +169,7 @@ void CanvasLayerManager::draw() {
 		ofPoint p = xform->getPosition();
 		ofPoint r = xform->getRotation();
 		ofPoint s = xform->getScale();
-        float opacity = xform->getOpacity();
+        int opacity = xform->getOpacity();
 
 		
         int w = xform->getWidth();
@@ -179,7 +179,7 @@ void CanvasLayerManager::draw() {
         
 		glPushMatrix();
 		
-        if (opacity < 1.0f) ofEnableAlphaBlending();
+        if (opacity < 255) ofEnableAlphaBlending();
         
 		glTranslated(p.x, p.y, p.z);
 
@@ -197,9 +197,8 @@ void CanvasLayerManager::draw() {
         
         //layer->getFbo()->begin();
 
-        ofSetColor(255,255,255,opacity * 255.0f);
+        ofSetColor(255,255,255,opacity);
 
-        cout << cout << layer->getName() << " opacity = " << opacity << "-> " << opacity * 255.0f << endl;
         
  //       ofFill();
         layer->getSource()->draw(-a.x, -a.y);
@@ -212,7 +211,7 @@ void CanvasLayerManager::draw() {
         
         //layer->getFbo()->draw(0,0);
 
-        if (opacity < 1.0f) ofDisableAlphaBlending();
+        if (opacity < 255) ofDisableAlphaBlending();
 
         
 		glPopMatrix();
