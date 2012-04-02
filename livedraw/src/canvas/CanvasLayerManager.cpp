@@ -175,10 +175,12 @@ void CanvasLayerManager::draw() {
         int w = xform->getWidth();
         int h = xform->getHeight();
         
-        cout << layer->getName() << ": " << p.x << "/" << p.y << "/" << p.z << endl;
+        //cout << layer->getName() << ": " << p.x << "/" << p.y << "/" << p.z << endl;
         
 		glPushMatrix();
 		
+        if (opacity < 1.0f) ofEnableAlphaBlending();
+        
 		glTranslated(p.x, p.y, p.z);
 
 		glRotated(r.x, 1, 0, 0);
@@ -195,18 +197,24 @@ void CanvasLayerManager::draw() {
         
         //layer->getFbo()->begin();
 
-        ofSetColor(255,255,255,opacity);
+        ofSetColor(255,255,255,opacity * 255.0f);
 
+        cout << cout << layer->getName() << " opacity = " << opacity << "-> " << opacity * 255.0f << endl;
+        
  //       ofFill();
         layer->getSource()->draw(-a.x, -a.y);
-        if(layer->getMask()->bAllocated()) 
-        layer->getMask()->draw(-a.x, -a.y);
+        if(layer->getMask()->bAllocated()) {
+            layer->getMask()->draw(-a.x, -a.y);
+        }
 //        ofRect(-a.x, -a.y,0,w,h);
 //        ofNoFill();
         //layer->getFbo()->end();
         
         //layer->getFbo()->draw(0,0);
 
+        if (opacity < 1.0f) ofDisableAlphaBlending();
+
+        
 		glPopMatrix();
          
         

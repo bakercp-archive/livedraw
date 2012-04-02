@@ -267,7 +267,7 @@ public:
             
         } else if(isMatch(address,"/opacity")) {
             if(validateOscSignature("[if]", m)) {
-                int  val = m.getArgAsInt32(0);
+                float  val = m.getArgAsFloat(0);
                 setOpacity(val);
             }
         } else if(isMatch(address,"/size")) {
