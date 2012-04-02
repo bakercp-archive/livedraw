@@ -35,6 +35,10 @@ public:
     
 	void setup();
 	void update();
+    
+    void render();
+    void draw();
+    
 	// void draw(); // they can't draw themselves.  the view has to draw them ...
 	
     void setAssetManager(AssetManager* assetManager);
@@ -94,7 +98,7 @@ public:
     
 private:
 	
-   // ofFbo fbo;
+    ofFbo* fbo;
     
     string layerName;
     

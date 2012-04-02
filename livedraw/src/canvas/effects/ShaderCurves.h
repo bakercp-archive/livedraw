@@ -78,7 +78,7 @@ public:
     }
     
     GLuint getLUTTexture() {
-        return textureLUT[1];
+        return textureLUT[0];
     }
     
     void onEnabled(){}
@@ -101,7 +101,7 @@ public:
     
     
     void setup() {
-        ofShader::setup("application/shaders/maw.shader.passthrough.vert",   
+        load("application/shaders/maw.shader.passthrough.vert",   
                         "application/shaders/maw.shader.curves.frag");
     }
     

@@ -53,7 +53,7 @@ void CanvasRenderer::setup() {
     fbo.setup(s);
      */
     
-    fbo.setup(width,height);
+    fbo.allocate(width,height);
 
     layerManager.setup();
 }

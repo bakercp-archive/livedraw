@@ -3,7 +3,7 @@
 
 
 //#include "ofMain.h"
-#include "ofxGui.h"
+//#include "ofxGui.h"
 
 
 class MyCustomControllerObject {// : public ofxGuiApp {
@@ -22,7 +22,7 @@ public:
 	ofxGuiButton* myOtherButton;
 	
 private:
-	ofxGui* gui;
+	//ofxGui* gui;
 		
 };
 

@@ -117,7 +117,7 @@ bool CanvasLayerManager::deleteLayer(string layerName) {
             break;
         }
     }
-    ofArduino of;
+
     // delete first, then erase from the vector
     if(it != layers.end()) {
         removeChild(*it); // remove it from the OSC tree!
@@ -175,7 +175,7 @@ void CanvasLayerManager::draw() {
         int w = xform->getWidth();
         int h = xform->getHeight();
         
-        //cout << layer->getName() << ": " << p.x << "/" << p.y << "/" << p.z << endl;
+        cout << layer->getName() << ": " << p.x << "/" << p.y << "/" << p.z << endl;
         
 		glPushMatrix();
 		

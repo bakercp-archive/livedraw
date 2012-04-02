@@ -119,7 +119,7 @@ public:
     
     
     void setup() {
-        ofShader::setup("application/shaders/maw.shader.passthrough.vert",   
+        load("application/shaders/maw.shader.passthrough.vert",   
                         "application/shaders/maw.shader.alphamasker.frag");
        
          //set the texture parameters for the maks shader. just do this at the beginning

@@ -11,9 +11,9 @@
 
 #include "ofMain.h"
 #include "OscManager.h"
-#include "ofxGui.h"
+//#include "ofxGui.h"
 
-#include "MyCustomControllerObject.h"
+//#include "MyCustomControllerObject.h"
 
 class GuiManager {//: public OscNodeListener {
 	
@@ -30,10 +30,10 @@ public:
     void newButtonEvent(const void * sender, int & i);
 
 private:    
-    ofxGui* gui;
+   // ofxGui* gui;
     
     
-    MyCustomControllerObject* guiObj;
+   // MyCustomControllerObject* guiObj;
 	
 
         

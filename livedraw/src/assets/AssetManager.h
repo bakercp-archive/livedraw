@@ -18,6 +18,7 @@
 #include "VideoMediaAsset.h"
 #include "GrabberMediaAsset.h"
 #include "StreamMediaAsset.h"
+#include "SyphonMediaAsset.h"
 #include "OscNodeListener.h"
 
 /*

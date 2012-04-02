@@ -17,12 +17,10 @@ void livedrawApp::setup(){
     canvas.setAssetManager(&assetManager);
     canvas.setEffectsManager(&effectsManager);
     
-    
 	oscManager.setup(PORT);
     oscManager.addChild(&canvas);
     oscManager.addChild(&effectsManager); 
     oscManager.addChild(&sessionManager); 
-	
     
     
     /******** GENERATE SOME TEST DATA **********/
@@ -63,9 +61,10 @@ void livedrawApp::draw(){
 
     canvas.render(); // accumulate everything onto the fbo.
     
-    // here is where we can do the
+    // here is where we can do the transformations before projection
     canvas.draw();
     
+    // draw the gui
     guiManager.draw();
 
     ofSetColor(255);

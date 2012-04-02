@@ -155,7 +155,7 @@ public:
     
     void addChild(OscNodeListener* child) {
         // TODO: should this be auto sorted:: std::sort
-        child->setParent(this); // TODO: is this a problem?
+        child->setParent(this);
         children.push_back(child);
     }
     

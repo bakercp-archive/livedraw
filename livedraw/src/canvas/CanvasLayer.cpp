@@ -24,6 +24,7 @@ CanvasLayer::CanvasLayer(string name) : OscNodeListener("/"+name) {
 CanvasLayer::~CanvasLayer() {
     if(source != NULL) delete source;
     if(mask != NULL) delete mask;
+    if(fbo != NULL) delete fbo;
 }
 
 //--------------------------------------------------------------
@@ -58,22 +59,9 @@ void CanvasLayer::setup() {
     addCommand("/input");
     addCommand("/mask"); 
 
-    
-    
-/*
-    ofFbo::Settings s;
-	s.width				= getTransform()->getWidth();
-	s.height			= getTransform()->getHeight();
-	s.numColorbuffers	= 1; // not sure how many I need.
-	s.numSamples		= useMSAA ? ofFbo::maxSamples() : 0;
-    cout << "Setting up canvas layer FBO" << endl;
-	fbo.setup(s);
-    cout << "XXXXXXXXX Setting up canvas layer FBO" << endl;
- */
+    fbo = new ofFbo();
 
-    //cout << "Setting up new FBO @ " << getTransform()->getWidth() << "/" << getTransform()->getHeight() << endl;
-    
-   // fbo.setup(getTransform()->getWidth(), getTransform()->getHeight());
+    fbo->allocate(getTransform()->getWidth(), getTransform()->getHeight());
     
     source = new ofVideoPlayer();
     mask = new ofImage();

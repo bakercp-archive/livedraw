@@ -7,8 +7,8 @@
 #include "AssetManager.h"
 #include "CanvasRenderer.h"
 #include "SessionManager.h"
-#include "ofxGui.h"
-#include "MyCustomControllerObject.h"
+//#include "ofxGui.h"
+//#include "MyCustomControllerObject.h"
 #include "EffectsManager.h"
 
 #define PORT 5433

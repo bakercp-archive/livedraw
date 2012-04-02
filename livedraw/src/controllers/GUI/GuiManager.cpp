@@ -21,10 +21,10 @@ GuiManager::~GuiManager() {
 
 //--------------------------------------------------------------
 void GuiManager::setup() {
-    gui = ofxGui::Instance();
-	guiObj = new MyCustomControllerObject(gui);
-	gui->forceUpdate(false);
-	gui->activate(true);
+//    gui = ofxGui::Instance();
+//	guiObj = new MyCustomControllerObject(gui);
+//	gui->forceUpdate(false);
+//	gui->activate(true);
 }
 
 //--------------------------------------------------------------

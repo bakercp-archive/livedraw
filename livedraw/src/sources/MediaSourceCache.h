@@ -1,7 +1,7 @@
 
 
-#ifndef _CACHED_SOURCE_H
-#define _CACHED_SOURCE_H
+#pragma once
+
 
 #include "ofVideoPlayer.h"
 #include "ofVideoGrabber.h"
@@ -27,5 +27,4 @@ private:
 	
 };
 
-#endif
 

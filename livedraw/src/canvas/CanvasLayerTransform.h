@@ -126,10 +126,16 @@ public:
         
         if(isMatch(address,"/position")) {
             if(validateOscSignature("([if][if]?[if]?)|([s][if])", m)) {
+                
+                cout << "GOT POSITION INFO" << endl;
+                
                 if(m.getArgType(0) == OFXOSC_TYPE_STRING) {
                     
                     char c = tolower(m.getArgAsString(0)[0]);
                     int  val = m.getArgAsInt32(1);
+                    
+                    cout << "\t\t in STRING TYPE ->" << val << endl;
+
                     
                     if(c == 'x') {
                         setPositionX(val);
@@ -143,11 +149,22 @@ public:
                     
                     
                 } else {
+                    
+                    cout << "\t\t in NON _> STRING TYPE ->" << m.getArgAsInt32(0) << endl;
+
+                    
                     setPositionX(m.getArgAsInt32(0));
                     if(m.getNumArgs() > 1) {
+                        
+                        cout << "\t\t\t setting y posi t0= " << m.getArgAsInt32(1) << endl;
+                        
                         setPositionY(m.getArgAsInt32(1));
                         if(m.getNumArgs() > 2) {
+                        
+                            cout << "\t\t\t setting ZZ posi t0= " << m.getArgAsInt32(2) << endl;
+
                             setPositionZ(m.getArgAsInt32(2));
+
                         }
                     }
                 }
