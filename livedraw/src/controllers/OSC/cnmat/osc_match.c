@@ -171,7 +171,7 @@ int osc_match_star(const char *pattern, const char *address){
 #if (OSC_MATCH_ENABLE_NSTARS == 1)
 int osc_match_star_r(const char *pattern, const char *address){
 	if(*address == '/' || *address == '\0'){
-		if(*pattern == '/' || *pattern == '\0' || (*pattern == '*' && (*(pattern + 1) == '/') || *(pattern + 1) == '\0')){
+		if(*pattern == '/' || *pattern == '\0' || ((*pattern == '*' && (*(pattern + 1) == '/')) || *(pattern + 1) == '\0')){
 			return 1;
 		}else{
 			return 0;
