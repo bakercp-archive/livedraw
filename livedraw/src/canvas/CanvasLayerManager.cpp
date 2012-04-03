@@ -79,7 +79,7 @@ CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point) {
         layerName = layerName + "_" + ofToString(ofGetElapsedTimeMillis());
     }
 
-    CanvasLayer* cl = new CanvasLayer(layerName); // MAKE SURE THESE ARE DELETED
+    CanvasLayer* cl = new CanvasLayer(this,layerName); // MAKE SURE THESE ARE DELETED
     cl->setup();
     
     cl->setPosition(point);
@@ -88,7 +88,7 @@ CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point) {
 
     
     CanvasLayerTransform* xform = cl->getTransform();
-    ofPoint p = xform->getPosition();
+    //ofPoint p = xform->getPosition();
     
     layers.push_back(cl);
     addChild(cl);
@@ -105,12 +105,8 @@ bool CanvasLayerManager::hasLayer(string name) {
 //--------------------------------------------------------------
 bool CanvasLayerManager::deleteLayer(string layerName) {
     bool success = false;
-    cout << "deleeting layer called " << layerName << endl;
-    
-    vector<CanvasLayer*>::iterator it;
-    
-    for ( it=layers.begin() ; it < layers.end(); it++ ) {
         
+    for ( it=layers.begin() ; it < layers.end(); it++ ) {
         if(isMatch(layerName,(*it)->getName())) {
             break;
         }
@@ -127,15 +123,15 @@ bool CanvasLayerManager::deleteLayer(string layerName) {
     }
     
     return success;
-    
+
 }
 
 //--------------------------------------------------------------
 CanvasLayer* CanvasLayerManager::getLayerByName(string layerName) {
     CanvasLayer* r = NULL;
-    for(int i = 0; i < layers.size(); i++) {
-        if(isMatch(layerName,layers[i]->getName())) {
-            r = layers[i];
+    for ( it=layers.begin() ; it < layers.end(); it++ ) {
+        if(isMatch(layerName,(*it)->getName())) {
+            r = (*it);
             break;
         }
     }
@@ -143,10 +139,12 @@ CanvasLayer* CanvasLayerManager::getLayerByName(string layerName) {
 }
 
 
+//--------------------------------------------------------------
 void CanvasLayerManager::update() {
     for(int i = 0; i < layers.size(); i++) layers[i]->update();
 }
 
+//--------------------------------------------------------------
 void CanvasLayerManager::draw() {
     // we are going to draw onto the caller's drawing context (namely, canvas renderer)
     
@@ -222,27 +220,42 @@ void CanvasLayerManager::draw() {
     
 }
 
-
-/*
 //--------------------------------------------------------------
-bool CanvasLayerManager::deleteLayer(string layerName) {
-    
-}
-
-
-//--------------------------------------------------------------
-void CanvasLayerManager::setSolo(string layerName, bool solo) {
-    
-}
-
-
-//--------------------------------------------------------------
-void CanvasLayerManager::setLock(string layerName, bool lock) {
+int CanvasLayerManager::getLayerIndex(string layerName) {
     
 }
 
 //--------------------------------------------------------------
-bool CanvasRenderer::deleteLayer(string layerName) {
-    
+bool CanvasLayerManager::bringLayerForward(CanvasLayer* layer) {
+    cout << "sending layer forward " << layer->getName() << endl;
 }
-*/
+
+//--------------------------------------------------------------
+bool CanvasLayerManager::sendLayerBackward(CanvasLayer* layer) {
+    cout << "sending layer backward " << layer->getName() << endl;
+}
+
+//--------------------------------------------------------------
+bool CanvasLayerManager::sendLayerToBack(CanvasLayer* layer) {
+    cout << "sending layer to back " << layer->getName() << endl;
+}
+
+//--------------------------------------------------------------
+bool CanvasLayerManager::bringLayerToFront(CanvasLayer* layer) {
+    cout << "sending layer to front " << layer->getName() << endl;
+}
+
+//--------------------------------------------------------------
+bool CanvasLayerManager::sendLayerTo(CanvasLayer* layer, int targetLayerIndex) {
+    cout << "sending layer " << layer->getName() << " to " << targetLayerIndex << endl;
+}
+
+//--------------------------------------------------------------
+void CanvasLayerManager::setLayerSolo(CanvasLayer* layer, bool solo) {
+    cout << "solo layer " << layer->getName() << " solo = " << solo << endl;
+}
+//--------------------------------------------------------------
+void CanvasLayerManager::setLayerLock(CanvasLayer* layer, bool lock) {
+    cout << "lock layer " << layer->getName() << " lock =" << lock <<  endl;
+}
+

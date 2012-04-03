@@ -10,13 +10,15 @@
 #include "CanvasLayer.h"
 
 //--------------------------------------------------------------
-CanvasLayer::CanvasLayer(string name, ofPoint pos) : OscNodeListener("/"+name) {
+CanvasLayer::CanvasLayer(CanvasLayerManager* _parent, string name, ofPoint pos) : OscNodeListener("/"+name) {
+    parent = _parent;
     layerName = name;
     setPosition(pos);
 }
 
 //--------------------------------------------------------------
-CanvasLayer::CanvasLayer(string name) : OscNodeListener("/"+name) {
+CanvasLayer::CanvasLayer(CanvasLayerManager* _parent, string name) : OscNodeListener("/"+name) {
+    parent = _parent;
     layerName = name;
 }
 
@@ -54,17 +56,40 @@ void CanvasLayer::setup() {
     getTransform()->setHeight(480); // standard canvas layer size
     
     addChild(&transform); // add the transform as an OSC child
-    addChild(&effectsChain);
+    addChild(&effectsChain); // add the associated effects chain as a child
     
     addCommand("/input");
-    addCommand("/mask"); 
-
+    addCommand("/mask");
+        
+    addCommand("/order");
+    
+    addCommand("/lock");
+    addCommand("/solo");
+    addCommand("/label");
+    
     fbo = new ofFbo();
 
     fbo->allocate(getTransform()->getWidth(), getTransform()->getHeight());
     
     source = new ofVideoPlayer();
     mask = new ofImage();
+}
+
+//--------------------------------------------------------------
+bool CanvasLayer::bringFoward() {
+    return parent->bringLayerForward(this);
+}
+//--------------------------------------------------------------
+bool CanvasLayer::sendBackward() {
+    return parent->sendLayerBackward(this);
+}
+//--------------------------------------------------------------
+bool CanvasLayer::bringToFront() {
+    return parent->bringLayerToFront(this);    
+}
+//--------------------------------------------------------------
+bool CanvasLayer::sendToBack() {
+    return parent->sendLayerToBack(this);
 }
 
 //--------------------------------------------------------------
@@ -85,8 +110,6 @@ void CanvasLayer::setRectangle(ofRectangle rect) {
 
 //--------------------------------------------------------------
 void CanvasLayer::processOscMessage(string address, ofxOscMessage& m) {
-    
-    cout << "layer out " << address << endl;
     
     if(isMatch(address, "/input")) {
         if(validateOscSignature("s",m)) {
@@ -113,11 +136,56 @@ void CanvasLayer::processOscMessage(string address, ofxOscMessage& m) {
                 ofLog(OF_LOG_ERROR, "CanvasLayer: [" + assetId + "] does not exist."); 
             }
         }
+    } else if(isMatch(address, "/order")) {
+        
+        cout << "IN HERE " << endl;
+        
+        if(validateOscSignature("[sfi]", m)) {
+            if(m.getArgType(0) == OFXOSC_TYPE_STRING) {
+                string command = toLower(m.getArgAsString(0));
+                if(isMatch(command, "forward")) {
+                    bringFoward();
+                } else if(isMatch(command,"backward")) {
+                    sendBackward();
+                } else if(isMatch(command,"front")) {
+                    bringToFront();
+                } else if(isMatch(command,"back")) {
+                    sendToBack();
+                }
+            } else {
+                
+                int targetLayer = m.getArgAsInt32(0);
+                
+                cout << "moving to " << targetLayer << endl;
+                
+            }
+
+            
+        }
+    } else if(isMatch(address, "/lock")) {
+        if(validateOscSignature("[fi]", m)) {
+            int val = m.getArgAsInt32(0);
+            locked = (val == 1);
+            parent->setLayerLock(this, locked);
+        }
+    } else if(isMatch(address, "/solo")) {
+        if(validateOscSignature("[fi]", m)) {
+            int val = m.getArgAsInt32(0);
+            solo = (val == 1);
+            parent->setLayerSolo(this, solo);
+        }
+    } else if(isMatch(address, "/label")) {
+        if(validateOscSignature("[fi][fi][fi][fi]?", m)) {
+            label.r = m.getArgAsFloat(0);
+            label.g = m.getArgAsFloat(1);
+            label.b = m.getArgAsFloat(2);
+            if(m.getNumArgs() < 4) {
+                label.a = m.getArgAsFloat(3);
+            }
+        }
     }
     
 }
-
-
 
 //--------------------------------------------------------------
 void CanvasLayer::setSource(VideoMediaAsset* src) {

@@ -7,6 +7,7 @@
 #include "ofxOsc.h"
 #include "OscNodeListener.h"
 #include "Poco/RegularExpression.h"
+#include "Poco/String.h"
 
 extern "C" {    
     #include "osc_match.h"
@@ -14,6 +15,9 @@ extern "C" {
 
 using namespace std;
 using Poco::RegularExpression;
+using Poco::toUpper;
+using Poco::toLower;
+using Poco::icompare;
 
 class OscNodeListener {
 
@@ -43,7 +47,7 @@ public:
     void routeOscMessage(string pattern, ofxOscMessage& m) {
         
         
-        ofLog(OF_LOG_NOTICE, "OscNodeListener: " + getNodeName() + " processing : " +  m.getAddress());
+        ofLog(OF_LOG_VERBOSE, "OscNodeListener: " + getNodeName() + " processing : " +  m.getAddress());
         
         
         int pattrOffset,addrOffset,matchResult;
@@ -56,13 +60,13 @@ public:
         //cout << m.getAddress() << "<<< " << endl;
         
         if(matchResult == 0) {
-            ofLog(OF_LOG_NOTICE, "OscNodeListener: No match for: " + m.getAddress());
+            ofLog(OF_LOG_VERBOSE, "OscNodeListener: No match for: " + m.getAddress());
             return;
         } else if(matchResult == OSC_MATCH_ADDRESS_COMPLETE) {
             pattern = pattern.substr(pattrOffset);
             
             if(hasCommand(pattern)) {// || children.size() <= 0) {
-                ofLog(OF_LOG_NOTICE, "\t\t\t" + getNodeName() + " had the command : " +  m.getAddress());
+                ofLog(OF_LOG_VERBOSE, "\t\t\t" + getNodeName() + " had the command : " +  m.getAddress());
                 processOscMessage(pattern, m);
             } else {
                 for(int i = 0; i < children.size(); i++) { 
@@ -202,7 +206,7 @@ public:
     
     
     bool isMatch(string s0, string s1) {
-        return s0.compare(s1) == 0;
+        return icompare(s0,s1) == 0;
     }
     
     bool validateOscSignature(string signature, ofxOscMessage& m) {

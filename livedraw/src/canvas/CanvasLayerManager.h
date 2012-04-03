@@ -14,6 +14,8 @@
 #include "AssetManager.h"
 #include "EffectsManager.h"
 
+class CanvasLayer;
+
 class CanvasLayerManager : public OscNodeListener {
 public:
     
@@ -29,18 +31,38 @@ public:
     
     void processOscMessage(string pattern, ofxOscMessage& m);
 
-	// /livedraw/canvas/layer/new      LAYER_NAME [X_POSITION Y_POSITION [Z_POSITION]]
 	CanvasLayer* newLayer(string layerName, ofPoint point);
 	bool deleteLayer(string layerName);
+
     bool hasLayer(string name);
 
     CanvasLayer* getLayerByName(string name);
+    
+    int  getLayerIndex(string layerName);
+    
+    
+    
+    
+    
+    
+    bool bringLayerForward(CanvasLayer* layer);
+    bool sendLayerBackward(CanvasLayer* layer);
+    bool sendLayerToBack(CanvasLayer* layer);
+    bool bringLayerToFront(CanvasLayer* layer);
+    bool sendLayerTo(CanvasLayer* layer, int targetLayerIndex);
+    
+    void setLayerSolo(CanvasLayer* layer, bool solo);
+    void setLayerLock(CanvasLayer* layer, bool lock);
     
     
 private:
     AssetManager* assetManager;
     EffectsManager* effectsManager;
     
+    vector<CanvasLayer*>::iterator it;
     vector<CanvasLayer*> layers;
+    
+    vector<CanvasLayer*> renderTree;
+    
 
 };

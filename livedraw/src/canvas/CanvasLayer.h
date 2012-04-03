@@ -14,18 +14,22 @@
 #include "BaseMediaSource.h"
 #include "ofTexture.h"
 #include "CanvasLayerTransform.h"
+#include "CanvasLayerManager.h"
 #include "EnablerInterface.h"
 #include "Samplers.h"
 #include "AssetManager.h"
 #include "EffectsManager.h"
 #include "EffectsChain.h"
+#include "TreeNode.h"
 
-class CanvasLayer : public OscNodeListener, public Enabler {
+class CanvasLayerManager;
+
+class CanvasLayer : public OscNodeListener, public Enabler, public TreeNode<CanvasLayer*> {
 	
 public:
 
-	CanvasLayer(string name, ofPoint pos);
-	CanvasLayer(string name);
+	CanvasLayer(CanvasLayerManager* clm, string name, ofPoint pos);
+	CanvasLayer(CanvasLayerManager* clm, string name);
     
 	virtual ~CanvasLayer();
 	
@@ -96,6 +100,12 @@ public:
     //    return &fbo;
    // }
     
+    bool bringFoward();
+    bool sendBackward();
+    bool bringToFront();
+    bool sendToBack();
+    
+    
 private:
 	
     ofFbo* fbo;
@@ -120,10 +130,13 @@ private:
 	
 	bool solo;
 	bool locked;
-	
+    
+    ofColor label;
+    
     // fbo
     bool useMSAA;
 
+    CanvasLayerManager* parent;
     
 	// -> should this be in the gui?
 	//ofColor labelColor;

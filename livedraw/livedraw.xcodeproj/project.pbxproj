@@ -222,6 +222,7 @@
 		FD47C233152A16C200CED8D3 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
 		FD87A11E152A257500388D96 /* SyphonMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SyphonMediaAsset.cpp; sourceTree = "<group>"; };
 		FD87A11F152A257500388D96 /* SyphonMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonMediaAsset.h; sourceTree = "<group>"; };
+		FDC50692152A999F00FE8B45 /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,6 +692,7 @@
 				FD47C232152A16C200CED8D3 /* ofxLimitedPoint.h */,
 				FD47C233152A16C200CED8D3 /* RingBuffer.h */,
 				FD47C20C152A160800CED8D3 /* MediaAssetTypes.h */,
+				FDC50692152A999F00FE8B45 /* TreeNode.h */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
