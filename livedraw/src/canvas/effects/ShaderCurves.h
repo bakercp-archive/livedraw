@@ -26,8 +26,8 @@ public:
             dataLUT[i][2] = ofMap(i, 0, LUT_LENGTH-1, 0, 1);   // B low
         }
         
-        addCommand("/lut");
-        addCommand("/enable");
+        addOscCommand("/lut");
+        addOscCommand("/enable");
     }
     
     ~ShaderCurvesSettings() {

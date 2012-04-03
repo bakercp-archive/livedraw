@@ -31,7 +31,7 @@ public:
     
     void processOscMessage(string pattern, ofxOscMessage& m);
 
-	CanvasLayer* newLayer(string layerName, ofPoint point);
+	CanvasLayer* newLayer(string layerName, ofPoint point = ofPoint(0.0,0.0,0.0), CanvasLayer* parentLayer = NULL);
 	bool deleteLayer(string layerName);
 
     bool hasLayer(string name);
@@ -41,7 +41,7 @@ public:
     int  getLayerIndex(string layerName);
     
     
-    
+    bool addLayerAsRoot(CanvasLayer* layer);
     
     
     
@@ -60,9 +60,9 @@ private:
     EffectsManager* effectsManager;
     
     vector<CanvasLayer*>::iterator it;
-    vector<CanvasLayer*> layers;
-    
-    vector<CanvasLayer*> renderTree;
+
+    vector<CanvasLayer*> layers;  // a collection of all layers
+    vector<CanvasLayer*> renderTree; // root layers in here 
     
 
 };

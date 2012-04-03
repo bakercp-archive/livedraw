@@ -25,13 +25,13 @@ public:
         spread = 0.01; //0.2);  //rtb runs between 0-1
         gain = 1.0; // gain = 0 - 1000
         
-        addCommand("/alphamode");
-        addCommand("/invertmask");
-        addCommand("/invertsource");
-        addCommand("/threshold");
-        addCommand("/spread");
-        addCommand("/gain");
-        addCommand("/enable");
+        addOscCommand("/alphamode");
+        addOscCommand("/invertmask");
+        addOscCommand("/invertsource");
+        addOscCommand("/threshold");
+        addOscCommand("/spread");
+        addOscCommand("/gain");
+        addOscCommand("/enable");
         
     }
     

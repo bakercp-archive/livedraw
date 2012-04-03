@@ -20,8 +20,8 @@ EffectsChain::~EffectsChain() {
 
 //--------------------------------------------------------------
 void EffectsChain::setup() {
-    addChild(&alphaMaskSettings);
-    addChild(&curvesSettings);
+    addOscChild(&alphaMaskSettings);
+    addOscChild(&curvesSettings);
 }
 
 //--------------------------------------------------------------

@@ -25,14 +25,14 @@ CanvasRenderer::~CanvasRenderer() {
 }
 
 void CanvasRenderer::init() {
-    addCommand("/position");
-    addCommand("/size");
-    addCommand("/background");
-    addCommand("/fullscreen");
-    addCommand("/fps");
-    addCommand("/msaa");
+    addOscCommand("/position");
+    addOscCommand("/size");
+    addOscCommand("/background");
+    addOscCommand("/fullscreen");
+    addOscCommand("/fps");
+    addOscCommand("/msaa");
     
-    addChild(&layerManager); // layer manager
+    addOscChild(&layerManager); // layer manager
     
     useMSAA = true;
         

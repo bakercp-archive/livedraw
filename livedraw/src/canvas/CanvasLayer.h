@@ -20,14 +20,14 @@
 #include "AssetManager.h"
 #include "EffectsManager.h"
 #include "EffectsChain.h"
-#include "TreeNode.h"
 
 class CanvasLayerManager;
 
-class CanvasLayer : public OscNodeListener, public Enabler, public TreeNode<CanvasLayer*> {
+class CanvasLayer : public OscNodeListener, public Enabler {
 	
 public:
 
+    CanvasLayer(CanvasLayerManager* clm, string name, ofPoint pos, CanvasLayer* layerParent);
 	CanvasLayer(CanvasLayerManager* clm, string name, ofPoint pos);
 	CanvasLayer(CanvasLayerManager* clm, string name);
     
@@ -106,6 +106,15 @@ public:
     bool sendToBack();
     
     
+    // node info
+    CanvasLayer*         getLayerRoot();
+    CanvasLayer*         getLayerParent();
+    vector<CanvasLayer*> getLayerChildren();
+
+    bool hasChild(CanvasLayer* layerChild);
+    
+    void setLayerParent(CanvasLayer* layerParent);
+    
 private:
 	
     ofFbo* fbo;
@@ -136,7 +145,18 @@ private:
     // fbo
     bool useMSAA;
 
-    CanvasLayerManager* parent;
+    CanvasLayerManager* layerManager;
+    
+    
+    // node 
+    CanvasLayer*         layerParent;
+    vector<CanvasLayer*> layerChildren;
+    
+    // private
+    vector<CanvasLayer*>::iterator findChild(CanvasLayer* layerChild);
+    bool addLayerChild(CanvasLayer* layerChild);
+    bool removeLayerChild(CanvasLayer* layerChild);
+
     
 	// -> should this be in the gui?
 	//ofColor labelColor;

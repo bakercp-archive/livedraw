@@ -111,12 +111,12 @@ public:
     
     
     void init() {
-        addCommand("/position");
-        addCommand("/anchorpoint");
-        addCommand("/rotate");
-        addCommand("/scale");
-        addCommand("/opacity");
-        addCommand("/size");
+        addOscCommand("/position");
+        addOscCommand("/anchorpoint");
+        addOscCommand("/rotate");
+        addOscCommand("/scale");
+        addOscCommand("/opacity");
+        addOscCommand("/size");
         
     }
     

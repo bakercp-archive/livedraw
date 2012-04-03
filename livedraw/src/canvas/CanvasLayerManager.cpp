@@ -21,8 +21,8 @@ CanvasLayerManager::~CanvasLayerManager() {
 
 //--------------------------------------------------------------
 void CanvasLayerManager::setup() {
-    addCommand("/new");
-    addCommand("/delete");
+    addOscCommand("/new");
+    addOscCommand("/delete");
 }
 
 //--------------------------------------------------------------
@@ -70,8 +70,9 @@ void CanvasLayerManager::processOscMessage(string pattern, ofxOscMessage& m) {
     
 }
 
+
 //--------------------------------------------------------------
-CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point) {
+CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point, CanvasLayer* parentLayer) {
     
 
     // rename if needed
@@ -79,7 +80,7 @@ CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point) {
         layerName = layerName + "_" + ofToString(ofGetElapsedTimeMillis());
     }
 
-    CanvasLayer* cl = new CanvasLayer(this,layerName); // MAKE SURE THESE ARE DELETED
+    CanvasLayer* cl = new CanvasLayer(this,layerName,point,parentLayer); // MAKE SURE THESE ARE DELETED
     cl->setup();
     
     cl->setPosition(point);
@@ -91,9 +92,14 @@ CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point) {
     //ofPoint p = xform->getPosition();
     
     layers.push_back(cl);
-    addChild(cl);
+    addOscChild(cl);
     
     return cl;
+}
+
+//--------------------------------------------------------------
+bool CanvasLayerManager::addLayerAsRoot(CanvasLayer* layer) {
+    renderTree.push_back(layer);
 }
 
 
@@ -114,7 +120,7 @@ bool CanvasLayerManager::deleteLayer(string layerName) {
 
     // delete first, then erase from the vector
     if(it != layers.end()) {
-        removeChild(*it); // remove it from the OSC tree!
+        removeOscChild(*it); // remove it from the OSC tree!
         delete *it;       // free the memory
         layers.erase(it); // erase it from the vector
         success = true;

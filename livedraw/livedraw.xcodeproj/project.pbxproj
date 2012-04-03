@@ -51,7 +51,6 @@
 		FD47C21F152A160800CED8D3 /* GuiManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1E6152A160800CED8D3 /* GuiManager.cpp */; };
 		FD47C220152A160800CED8D3 /* osc_match.c in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1EA152A160800CED8D3 /* osc_match.c */; };
 		FD47C221152A160800CED8D3 /* OscManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1EC152A160800CED8D3 /* OscManager.cpp */; };
-		FD47C222152A160800CED8D3 /* LayoutManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1F0152A160800CED8D3 /* LayoutManager.cpp */; };
 		FD47C224152A160800CED8D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1F4152A160800CED8D3 /* main.cpp */; };
 		FD47C225152A160800CED8D3 /* SessionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1F6152A160800CED8D3 /* SessionManager.cpp */; };
 		FD47C226152A160800CED8D3 /* SessionPerformance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C1F8152A160800CED8D3 /* SessionPerformance.cpp */; };
@@ -64,6 +63,7 @@
 		FD47C22D152A160800CED8D3 /* StreamSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C207152A160800CED8D3 /* StreamSource.cpp */; };
 		FD47C22E152A160800CED8D3 /* VideoSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C209152A160800CED8D3 /* VideoSource.cpp */; };
 		FD47C230152A162B00CED8D3 /* livedrawApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD47C22F152A162B00CED8D3 /* livedrawApp.cpp */; };
+		FD5E761A152B656800B72B19 /* OscNodeListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD5E7619152B656800B72B19 /* OscNodeListener.cpp */; };
 		FD87A120152A257500388D96 /* SyphonMediaAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD87A11E152A257500388D96 /* SyphonMediaAsset.cpp */; };
 /* End PBXBuildFile section */
 
@@ -191,8 +191,6 @@
 		FD47C1EC152A160800CED8D3 /* OscManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscManager.cpp; sourceTree = "<group>"; };
 		FD47C1ED152A160800CED8D3 /* OscManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscManager.h; sourceTree = "<group>"; };
 		FD47C1EE152A160800CED8D3 /* OscNodeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OscNodeListener.h; sourceTree = "<group>"; };
-		FD47C1F0152A160800CED8D3 /* LayoutManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutManager.cpp; sourceTree = "<group>"; };
-		FD47C1F1152A160800CED8D3 /* LayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutManager.h; sourceTree = "<group>"; };
 		FD47C1F3152A160800CED8D3 /* livedrawApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = livedrawApp.h; sourceTree = "<group>"; };
 		FD47C1F4152A160800CED8D3 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FD47C1F6152A160800CED8D3 /* SessionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SessionManager.cpp; sourceTree = "<group>"; };
@@ -220,9 +218,9 @@
 		FD47C231152A16C200CED8D3 /* EnablerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnablerInterface.h; sourceTree = "<group>"; };
 		FD47C232152A16C200CED8D3 /* ofxLimitedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxLimitedPoint.h; sourceTree = "<group>"; };
 		FD47C233152A16C200CED8D3 /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		FD5E7619152B656800B72B19 /* OscNodeListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscNodeListener.cpp; sourceTree = "<group>"; };
 		FD87A11E152A257500388D96 /* SyphonMediaAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SyphonMediaAsset.cpp; sourceTree = "<group>"; };
 		FD87A11F152A257500388D96 /* SyphonMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyphonMediaAsset.h; sourceTree = "<group>"; };
-		FDC50692152A999F00FE8B45 /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,7 +323,6 @@
 				FD47C1B3152A160800CED8D3 /* assets */,
 				FD47C1C7152A160800CED8D3 /* canvas */,
 				FD47C1DF152A160800CED8D3 /* controllers */,
-				FD47C1EF152A160800CED8D3 /* layout */,
 				FD47C1F3152A160800CED8D3 /* livedrawApp.h */,
 				FD47C1F4152A160800CED8D3 /* main.cpp */,
 				FD47C1F5152A160800CED8D3 /* sessions */,
@@ -626,9 +623,10 @@
 			isa = PBXGroup;
 			children = (
 				FD47C1E9152A160800CED8D3 /* cnmat */,
-				FD47C1EC152A160800CED8D3 /* OscManager.cpp */,
 				FD47C1ED152A160800CED8D3 /* OscManager.h */,
+				FD47C1EC152A160800CED8D3 /* OscManager.cpp */,
 				FD47C1EE152A160800CED8D3 /* OscNodeListener.h */,
+				FD5E7619152B656800B72B19 /* OscNodeListener.cpp */,
 			);
 			path = OSC;
 			sourceTree = "<group>";
@@ -640,15 +638,6 @@
 				FD47C1EB152A160800CED8D3 /* osc_match.h */,
 			);
 			path = cnmat;
-			sourceTree = "<group>";
-		};
-		FD47C1EF152A160800CED8D3 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				FD47C1F0152A160800CED8D3 /* LayoutManager.cpp */,
-				FD47C1F1152A160800CED8D3 /* LayoutManager.h */,
-			);
-			path = layout;
 			sourceTree = "<group>";
 		};
 		FD47C1F5152A160800CED8D3 /* sessions */ = {
@@ -692,7 +681,6 @@
 				FD47C232152A16C200CED8D3 /* ofxLimitedPoint.h */,
 				FD47C233152A16C200CED8D3 /* RingBuffer.h */,
 				FD47C20C152A160800CED8D3 /* MediaAssetTypes.h */,
-				FDC50692152A999F00FE8B45 /* TreeNode.h */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -809,7 +797,6 @@
 				FD47C21F152A160800CED8D3 /* GuiManager.cpp in Sources */,
 				FD47C220152A160800CED8D3 /* osc_match.c in Sources */,
 				FD47C221152A160800CED8D3 /* OscManager.cpp in Sources */,
-				FD47C222152A160800CED8D3 /* LayoutManager.cpp in Sources */,
 				FD47C224152A160800CED8D3 /* main.cpp in Sources */,
 				FD47C225152A160800CED8D3 /* SessionManager.cpp in Sources */,
 				FD47C226152A160800CED8D3 /* SessionPerformance.cpp in Sources */,
@@ -823,6 +810,7 @@
 				FD47C22E152A160800CED8D3 /* VideoSource.cpp in Sources */,
 				FD47C230152A162B00CED8D3 /* livedrawApp.cpp in Sources */,
 				FD87A120152A257500388D96 /* SyphonMediaAsset.cpp in Sources */,
+				FD5E761A152B656800B72B19 /* OscNodeListener.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

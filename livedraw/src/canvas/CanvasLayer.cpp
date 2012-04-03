@@ -10,16 +10,26 @@
 #include "CanvasLayer.h"
 
 //--------------------------------------------------------------
-CanvasLayer::CanvasLayer(CanvasLayerManager* _parent, string name, ofPoint pos) : OscNodeListener("/"+name) {
-    parent = _parent;
+CanvasLayer::CanvasLayer(CanvasLayerManager* _layerManager, string name, ofPoint pos, CanvasLayer* _layerParent) : OscNodeListener("/"+name) {
+    layerManager = _layerManager;
     layerName = name;
+    setLayerParent(_layerParent);
     setPosition(pos);
 }
 
 //--------------------------------------------------------------
-CanvasLayer::CanvasLayer(CanvasLayerManager* _parent, string name) : OscNodeListener("/"+name) {
-    parent = _parent;
+CanvasLayer::CanvasLayer(CanvasLayerManager* _layerManager, string name, ofPoint pos) : OscNodeListener("/"+name) {
+    layerManager = _layerManager;
     layerName = name;
+    layerParent = NULL;
+    setPosition(pos);
+}
+
+//--------------------------------------------------------------
+CanvasLayer::CanvasLayer(CanvasLayerManager* _layerManager, string name) : OscNodeListener("/"+name) {
+    layerManager = _layerManager;
+    layerName = name;
+    layerParent = NULL;
 }
 
 //--------------------------------------------------------------
@@ -27,6 +37,8 @@ CanvasLayer::~CanvasLayer() {
     if(source != NULL) delete source;
     if(mask != NULL) delete mask;
     if(fbo != NULL) delete fbo;
+    
+    // TODO : what do do about kids? delete the kids or set them to root?
 }
 
 //--------------------------------------------------------------
@@ -55,17 +67,17 @@ void CanvasLayer::setup() {
     getTransform()->setWidth(640);
     getTransform()->setHeight(480); // standard canvas layer size
     
-    addChild(&transform); // add the transform as an OSC child
-    addChild(&effectsChain); // add the associated effects chain as a child
+    addOscChild(&transform); // add the transform as an OSC child
+    addOscChild(&effectsChain); // add the associated effects chain as a child
     
-    addCommand("/input");
-    addCommand("/mask");
+    addOscCommand("/input");
+    addOscCommand("/mask");
         
-    addCommand("/order");
+    addOscCommand("/order");
     
-    addCommand("/lock");
-    addCommand("/solo");
-    addCommand("/label");
+    addOscCommand("/lock");
+    addOscCommand("/solo");
+    addOscCommand("/label");
     
     fbo = new ofFbo();
 
@@ -77,20 +89,110 @@ void CanvasLayer::setup() {
 
 //--------------------------------------------------------------
 bool CanvasLayer::bringFoward() {
-    return parent->bringLayerForward(this);
+    return layerManager->bringLayerForward(this);
 }
 //--------------------------------------------------------------
 bool CanvasLayer::sendBackward() {
-    return parent->sendLayerBackward(this);
+    return layerManager->sendLayerBackward(this);
 }
 //--------------------------------------------------------------
 bool CanvasLayer::bringToFront() {
-    return parent->bringLayerToFront(this);    
+    return layerManager->bringLayerToFront(this);    
 }
 //--------------------------------------------------------------
 bool CanvasLayer::sendToBack() {
-    return parent->sendLayerToBack(this);
+    return layerManager->sendLayerToBack(this);
 }
+
+
+// node info
+//--------------------------------------------------------------
+CanvasLayer* CanvasLayer::getLayerRoot() {
+    // recursively locate root
+    return layerParent != NULL ? layerParent->getLayerRoot() : NULL;
+}
+
+//--------------------------------------------------------------
+CanvasLayer* CanvasLayer::getLayerParent() {
+    return layerParent;
+}
+
+//--------------------------------------------------------------
+vector<CanvasLayer*> CanvasLayer::getLayerChildren() {
+    return layerChildren;
+}
+
+//--------------------------------------------------------------
+bool CanvasLayer::hasChild(CanvasLayer* _layerChild) {
+    return find (layerChildren.begin(), 
+                 layerChildren.end(), 
+                 _layerChild) != layerChildren.end();
+}
+
+//--------------------------------------------------------------
+vector<CanvasLayer*>::iterator CanvasLayer::findChild(CanvasLayer* _layerChild) {
+    return find (layerChildren.begin(), layerChildren.end(), _layerChild);
+}
+
+
+//--------------------------------------------------------------
+void CanvasLayer::setLayerParent(CanvasLayer* _layerParent) {
+    
+    // setting the layer parent does:
+    // 0. checks to see if the parent is different.
+    // 1. removes the layer from an existing parent.
+    // 2. sets a new parent reference.
+    // 3. adds the item to the parent.
+    
+
+    if(_layerParent == layerParent) {
+        // already set
+        return;
+    }
+
+    if(layerParent != NULL) { // if it has a parent, remove it
+        // remove from the current parent
+        if(!layerParent->removeLayerChild(this)) {
+            ofLog(OF_LOG_ERROR, "CanvasLayer::setLayerParent(): Error removing child from previous parent.");  
+        } 
+    }
+
+    layerParent = _layerParent; // set a new parent reference
+    
+    if(layerParent != NULL) {
+        layerParent->addLayerChild(this); // add item to the new parent
+    } else {
+        layerManager->addLayerAsRoot(this);
+    }
+    
+}
+//--------------------------------------------------------------
+bool CanvasLayer::addLayerChild(CanvasLayer* _layerChild) {
+    vector<CanvasLayer*>::iterator layerParentIter = findChild(this);
+
+    if(layerParentIter == layerChildren.end()) {
+        layerChildren.push_back(_layerChild);
+        return true;
+    } else {
+        return false;
+    }    
+}
+
+//--------------------------------------------------------------
+bool CanvasLayer::removeLayerChild(CanvasLayer* _layerChild) {
+    vector<CanvasLayer*>::iterator it = findChild(_layerChild);
+    if(it != layerChildren.end()) {
+        _layerChild->setLayerParent(NULL);
+        layerChildren.erase(it);
+        return true;
+    } else {
+        // did not have it
+        return false;
+    }
+}
+
+
+
 
 //--------------------------------------------------------------
 void CanvasLayer::setPosition(ofPoint pos) {
@@ -166,13 +268,13 @@ void CanvasLayer::processOscMessage(string address, ofxOscMessage& m) {
         if(validateOscSignature("[fi]", m)) {
             int val = m.getArgAsInt32(0);
             locked = (val == 1);
-            parent->setLayerLock(this, locked);
+            layerManager->setLayerLock(this, locked);
         }
     } else if(isMatch(address, "/solo")) {
         if(validateOscSignature("[fi]", m)) {
             int val = m.getArgAsInt32(0);
             solo = (val == 1);
-            parent->setLayerSolo(this, solo);
+            layerManager->setLayerSolo(this, solo);
         }
     } else if(isMatch(address, "/label")) {
         if(validateOscSignature("[fi][fi][fi][fi]?", m)) {
@@ -211,7 +313,7 @@ string CanvasLayer::getName() {
 //--------------------------------------------------------------
 void CanvasLayer::setName(string _name) {
     layerName = _name;
-    setNodeName("/"+layerName);
+    setOscNodeName("/"+layerName);
 }
 
 //--------------------------------------------------------------

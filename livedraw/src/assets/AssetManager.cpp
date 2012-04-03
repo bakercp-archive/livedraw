@@ -13,7 +13,7 @@
 AssetManager::AssetManager() : OscNodeListener("/sources")
 {
 	//loadAssets();
-    addCommand("alias"); // allows id changes
+    addOscCommand("alias"); // allows id changes
 }
 
 //--------------------------------------------------------------

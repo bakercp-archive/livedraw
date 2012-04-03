@@ -18,9 +18,9 @@ void livedrawApp::setup(){
     canvas.setEffectsManager(&effectsManager);
     
 	oscManager.setup(PORT);
-    oscManager.addChild(&canvas);
-    oscManager.addChild(&effectsManager); 
-    oscManager.addChild(&sessionManager); 
+    oscManager.addOscChild(&canvas);
+    oscManager.addOscChild(&effectsManager); 
+    oscManager.addOscChild(&sessionManager); 
     
     
     /******** GENERATE SOME TEST DATA **********/
