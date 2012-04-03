@@ -122,20 +122,11 @@ public:
 
     void processOscMessage(string address, ofxOscMessage& m) {
         
-//        cout << "getting TRANSFORM MESSAGE!"<<endl;
-        
         if(isMatch(address,"/position")) {
             if(validateOscSignature("([if][if]?[if]?)|([s][if])", m)) {
-                
-                cout << "GOT POSITION INFO" << endl;
-                
                 if(m.getArgType(0) == OFXOSC_TYPE_STRING) {
-                    
                     char c = tolower(m.getArgAsString(0)[0]);
-                    int  val = m.getArgAsInt32(1);
-                    
-                    cout << "\t\t in STRING TYPE ->" << val << endl;
-
+                    float  val = m.getArgAsFloat(1);
                     
                     if(c == 'x') {
                         setPositionX(val);
@@ -146,25 +137,13 @@ public:
                     } else {
                         ofLog(OF_LOG_ERROR, "CanvasLayerTransform: invalid arg type: " + ofToString(c) + " " + address);
                     }
-                    
-                    
+
                 } else {
-                    
-                    cout << "\t\t in NON _> STRING TYPE ->" << m.getArgAsInt32(0) << endl;
-
-                    
-                    setPositionX(m.getArgAsInt32(0));
+                    setPositionX(m.getArgAsFloat(0));
                     if(m.getNumArgs() > 1) {
-                        
-                        cout << "\t\t\t setting y posi t0= " << m.getArgAsInt32(1) << endl;
-                        
-                        setPositionY(m.getArgAsInt32(1));
+                        setPositionY(m.getArgAsFloat(1));
                         if(m.getNumArgs() > 2) {
-                        
-                            cout << "\t\t\t setting ZZ posi t0= " << m.getArgAsInt32(2) << endl;
-
-                            setPositionZ(m.getArgAsInt32(2));
-
+                            setPositionZ(m.getArgAsFloat(2));
                         }
                     }
                 }
@@ -175,7 +154,7 @@ public:
                 if(m.getArgType(0) == OFXOSC_TYPE_STRING) {
                     
                     char c = tolower(m.getArgAsString(0)[0]);
-                    int  val = m.getArgAsInt32(1);
+                    float  val = m.getArgAsFloat(1);
                     
                     if(c == 'x') {
                         setAnchorPointX(val);
@@ -189,11 +168,11 @@ public:
                     
                     
                 } else {
-                    setAnchorPointX(m.getArgAsInt32(0));
+                    setAnchorPointX(m.getArgAsFloat(0));
                     if(m.getNumArgs() > 1) {
-                        setAnchorPointY(m.getArgAsInt32(1));
+                        setAnchorPointY(m.getArgAsFloat(1));
                         if(m.getNumArgs() > 2) {
-                            setAnchorPointZ(m.getArgAsInt32(2));
+                            setAnchorPointZ(m.getArgAsFloat(2));
                         }
                     }
                 }
@@ -234,9 +213,7 @@ public:
                 
                 
             }
-        } else if(isMatch(address,"/scale")) {
-            // TODO: z-scale?  is this possible in 2d space?
-            
+        } else if(isMatch(address,"/scale")) {            
             if(validateOscSignature("([f][f]?[f]?)|([s][f])", m)) {
                 if(m.getArgType(0) == OFXOSC_TYPE_STRING) {
                     
@@ -253,7 +230,6 @@ public:
                         ofLog(OF_LOG_ERROR, "CanvasLayerTransform: invalid arg type: " + ofToString(c) + " " + address);
                     }
                     
-                    
                 } else {
                     setScaleX(m.getArgAsFloat(0));
                     if(m.getNumArgs() > 1) {
@@ -267,13 +243,13 @@ public:
             
         } else if(isMatch(address,"/opacity")) {
             if(validateOscSignature("[if]", m)) {
-                int  val = m.getArgAsInt32(0);
+                float  val = m.getArgAsFloat(0);
                 setOpacity(val);
             }
         } else if(isMatch(address,"/size")) {
             if(validateOscSignature("[if][if]", m)) {
-                int w = m.getArgAsInt32(0);
-                int h = m.getArgAsInt32(1);
+                int w = m.getArgAsFloat(0);
+                int h = m.getArgAsFloat(1);
                 setSize(ofPoint(w,h));
             }
         }
@@ -395,7 +371,7 @@ public:
 	
     ofxLimitedPoint size;
     
-	int opacity; // 0-255
+	float opacity; // 0-255
 	
 	/*
 	ofEvent<ofxLimitedPoint*> newPositionEvent;

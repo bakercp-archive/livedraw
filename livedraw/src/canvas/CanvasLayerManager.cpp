@@ -41,23 +41,21 @@ void CanvasLayerManager::processOscMessage(string pattern, ofxOscMessage& m) {
     if(isMatch(pattern,"/new")) {
         // /livedraw/canvas/layer/new      LAYER_NAME [X_POSITION Y_POSITION [Z_POSITION]]
         if(validateOscSignature("s[fi][fi][fi]?", m)) {
-            int x = 0;
-            int y = 0;
-            int z = 0;
+
+            ofPoint p(0.0f,0.0f,0.0f);
+
             string layerName = m.getArgAsString(0);
             
             if(m.getNumArgs() > 1) {
-                x = m.getArgAsInt32(1);
-                y = m.getArgAsInt32(2);
+                p.x = m.getArgAsFloat(1);
+                p.y = m.getArgAsFloat(2);
                 if(m.getNumArgs() > 3) {
-                    cout << " got a z" << endl;
-                    z = m.getArgAsInt32(3);
+                    p.z = m.getArgAsFloat(3);
                 }
             }
 
-            
             // make a new layer
-            newLayer(layerName, ofPoint(x,y,z));
+            newLayer(layerName, p);
             
         }
     } else if(isMatch(pattern, "/delete")) {
