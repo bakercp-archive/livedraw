@@ -9,6 +9,7 @@ OscNodeListener::OscNodeListener() {
 
 //--------------------------------------------------------------
 OscNodeListener::OscNodeListener(string _nodeName) {
+    oscParent = NULL;
     oscNodeName = _nodeName;
 }
 
@@ -55,10 +56,10 @@ void OscNodeListener::routeOscMessage(string pattern, ofxOscMessage& m) {
         // otherwise, it gets ignored
         
     } else if(matchResult == OSC_MATCH_PATTERN_COMPLETE) {
-        cout << "PATTERN COMPLETE ++ PROCESSING." << endl;
+        ofLog(OF_LOG_VERBOSE,"PATTERN COMPLETE ++ PROCESSING.");
         processOscMessage(pattern, m);
     } else if(matchResult == OSC_MATCH_ADDRESS_AND_PATTERN_COMPLETE) {
-        cout << "ADDRESS AND PATTERN COMPLETE : PERFECT MATCH ++ PROCESSING" << endl;
+        ofLog(OF_LOG_VERBOSE,"ADDRESS AND PATTERN COMPLETE : PERFECT MATCH ++ PROCESSING");
         processOscMessage(pattern, m);
     } else {
         ofLog(OF_LOG_ERROR, "OscNodeListener: Unknown osc_match result.");

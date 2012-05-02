@@ -73,27 +73,26 @@ void CanvasLayerManager::processOscMessage(string pattern, ofxOscMessage& m) {
 
 //--------------------------------------------------------------
 CanvasLayer* CanvasLayerManager::newLayer(string layerName, ofPoint point, CanvasLayer* parentLayer) {
-    
 
     // rename if needed
     if(hasLayer(layerName)) {
         layerName = layerName + "_" + ofToString(ofGetElapsedTimeMillis());
-    }
+    } else {}
 
     CanvasLayer* cl = new CanvasLayer(this,layerName,point,parentLayer); // MAKE SURE THESE ARE DELETED
-    cl->setup();
     
+    cl->setup();
     cl->setPosition(point);
     cl->setAssetManager(assetManager);
     cl->setEffectsManager(effectsManager);
 
-    
     CanvasLayerTransform* xform = cl->getTransform();
     //ofPoint p = xform->getPosition();
-    
+
     layers.push_back(cl);
+
     addOscChild(cl);
-    
+
     return cl;
 }
 

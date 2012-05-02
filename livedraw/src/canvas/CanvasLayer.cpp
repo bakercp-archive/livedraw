@@ -13,7 +13,7 @@
 CanvasLayer::CanvasLayer(CanvasLayerManager* _layerManager, string name, ofPoint pos, CanvasLayer* _layerParent) : OscNodeListener("/"+name) {
     layerManager = _layerManager;
     layerName = name;
-    setLayerParent(_layerParent);
+    layerParent = _layerParent;
     setPosition(pos);
 }
 
@@ -55,9 +55,7 @@ void CanvasLayer::setEffectsManager(EffectsManager* _effectsManager) {
 //--------------------------------------------------------------
 
 void CanvasLayer::setup() {
-    
     effectsChain.setup();
-    
     solo = false;
     locked = false;
     
@@ -69,7 +67,7 @@ void CanvasLayer::setup() {
     
     addOscChild(&transform); // add the transform as an OSC child
     addOscChild(&effectsChain); // add the associated effects chain as a child
-    
+
     addOscCommand("/input");
     addOscCommand("/mask");
         
@@ -78,11 +76,11 @@ void CanvasLayer::setup() {
     addOscCommand("/lock");
     addOscCommand("/solo");
     addOscCommand("/label");
-    
+
     fbo = new ofFbo();
 
     fbo->allocate(getTransform()->getWidth(), getTransform()->getHeight());
-    
+
     source = new ofVideoPlayer();
     mask = new ofImage();
 }
@@ -103,7 +101,6 @@ bool CanvasLayer::bringToFront() {
 bool CanvasLayer::sendToBack() {
     return layerManager->sendLayerToBack(this);
 }
-
 
 // node info
 //--------------------------------------------------------------
@@ -131,7 +128,9 @@ bool CanvasLayer::hasChild(CanvasLayer* _layerChild) {
 
 //--------------------------------------------------------------
 vector<CanvasLayer*>::iterator CanvasLayer::findChild(CanvasLayer* _layerChild) {
-    return find (layerChildren.begin(), layerChildren.end(), _layerChild);
+    return find (layerChildren.begin(), 
+                 layerChildren.end(), 
+                 _layerChild);
 }
 
 
@@ -150,6 +149,7 @@ void CanvasLayer::setLayerParent(CanvasLayer* _layerParent) {
         return;
     }
 
+    
     if(layerParent != NULL) { // if it has a parent, remove it
         // remove from the current parent
         if(!layerParent->removeLayerChild(this)) {
@@ -190,9 +190,6 @@ bool CanvasLayer::removeLayerChild(CanvasLayer* _layerChild) {
         return false;
     }
 }
-
-
-
 
 //--------------------------------------------------------------
 void CanvasLayer::setPosition(ofPoint pos) {
